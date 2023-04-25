@@ -57,7 +57,7 @@ function Home({ }: Props) {
         <nav className="sc-ff5a39ab-1 cZeLOv">
           <div className="sc-3a5c8d1f-1 sc-32d5f017-0 glwDJB fOPopv">
             <div className="sc-3a5c8d1f-1 sc-32d5f017-0 glwDJB chfQFH">
-              <object type="image/svg+xml" data="@/styles/DOM_Predict.svg"></object>
+              <object type="image/svg+xml" data="/DOM_Predict.svg"></object>
               <svg viewBox="0 0 1281 199" className="sc-231a1e38-0 dPwWVs desktop-icon" color="text" width="200px">
                 <use xlinkHref="#icomoon-ignore" />
               </svg>
