@@ -10,9 +10,6 @@ body {
   @apply bg-blue-500 text-white px-6 py-2 rounded-lg text-sm hover: bg-blue-600 transition-all duration-200;
 }
 
-.btn {
-  @apply bg-blue-500 text-white px-6 py-2 rounded-lg text-sm hover: bg-blue-600 transition-all duration-200;
-}
 
 ._1nzuaz72 {
   display: block;
