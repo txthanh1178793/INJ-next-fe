@@ -1,4 +1,5 @@
 import { useCounterStore } from "@/context/CounterContextProvider";
+import ConnectWallet from "@/components/ConnectWallet";
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 type Props = {};
@@ -72,9 +73,10 @@ function Home({ }: Props) {
           </div>
 
           <div className="sc-3a5c8d1f-1 sc-32d5f017-0 qopKT chfQFH">
-            <button className="sc-56a7a3a9-0 cyLbdv" >
+            {/* <button className="sc-56a7a3a9-0 cyLbdv" >
               <div>Connect Wallet</div>
-            </button>
+            </button> */}
+            <ConnectWallet />
           </div>
         </nav>
 

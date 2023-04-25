@@ -11,7 +11,7 @@ const ConnectWallet = (props: Props) => {
   return (
     <button
       onClick={connectWallet}
-      className='btn'
+      className='sc-56a7a3a9-0 cyLbdv'
     >
       {btnText}
     </button>
