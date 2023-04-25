@@ -53,7 +53,6 @@ function Home({ }: Props) {
       </body >
     </div>
   );
-  );
 }
 
 export default Home;
