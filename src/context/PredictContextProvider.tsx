@@ -70,16 +70,19 @@ const CounterContextProvider = (props: Props) => {
 
             ) as { data: string };
             // console.log(response.data as string);
-            const { count } = fromBase64(response);
+            // const { count } = fromBase64(response);
             // const { count } = fromBase64(response.data) as { count: number };
-            console.log("------------");
-            console.log(count);
-            console.log("------------");
 
             const response2 = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
                 toBase64({ bet_info: { bet_id: 0 } })
-            );
+            ) as { data: string };
+            const { count } = fromBase64(response.data) as { count: number };
+            console.log("------------");
+            console.log(count);
+            console.log("------------");
+
+
             // console.log(response2);
             // const { count } = fromBase64(response.data) as { count: number };
             // setCount(count);
