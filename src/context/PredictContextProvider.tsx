@@ -65,23 +65,25 @@ const CounterContextProvider = (props: Props) => {
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
-                // toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
-                toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
+                toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
+                // toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
 
             );
+            console.log(response);
 
-            // const response2 = await chainGrpcWasmApi.fetchRawContractState(
-            //     PREDICT_CONTRACT_ADDRESS,
-            //     toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
-            // );
+            const response2 = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ bet_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
+            );
+            console.log(response2);
             // const { count } = fromBase64(response.data) as { count: number };
             // setCount(count);
 
             // const count = fromBase64(Buffer.from(response.data).toString("base64"));
 
             // console.log(count);
-            console.log(response);
-            // console.log(response2);
+
+            // 
         } catch (e) {
             alert((e as any).message);
         }
