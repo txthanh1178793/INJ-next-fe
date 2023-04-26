@@ -69,7 +69,7 @@ const CounterContextProvider = (props: Props) => {
                 // toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
 
             ) as { data: string };
-            // console.log(response.data as string);
+            console.log(JSON.parse(fromBase64(response.data)));
             // const { count } = fromBase64(response);
             // const { count } = fromBase64(response.data) as { count: number };
 
@@ -77,7 +77,8 @@ const CounterContextProvider = (props: Props) => {
                 PREDICT_CONTRACT_ADDRESS,
                 toBase64({ bet_info: { bet_id: 0 } })
             ) as { data: string };
-            const { count } = fromBase64(response.data) as { count: number };
+            // const { count } = fromBase64(response.data) as { count: number };
+
             console.log("------------");
             console.log(count);
             console.log("------------");
