@@ -69,7 +69,7 @@ const CounterContextProvider = (props: Props) => {
                 // toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
 
             ) as { data: string };
-            console.log(JSON.parse(fromBase64(response.data)));
+            console.log(fromBase64(response.data));
             // const { count } = fromBase64(response);
             // const { count } = fromBase64(response.data) as { count: number };
 
