@@ -75,9 +75,9 @@ const CounterContextProvider = (props: Props) => {
             // const { count } = fromBase64(response.data) as { count: number };
             // setCount(count);
 
-            // const count = response.data;
+            const count = fromBase64(Buffer.from(response.data).toString("base64"));
 
-            console.log(JSON.parse(fromBase64(response.data)));
+            console.log(count);
             console.log(response);
             console.log(response2);
         } catch (e) {
