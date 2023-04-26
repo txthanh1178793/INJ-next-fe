@@ -81,7 +81,7 @@ const CounterContextProvider = (props: Props) => {
     return (
         <CounterContext.Provider
             value={{
-                count,
+                // count,
                 isLoading,
                 // incrementCount,
                 // setContractCounter,
