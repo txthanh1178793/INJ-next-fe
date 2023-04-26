@@ -73,6 +73,7 @@ const CounterContextProvider = (props: Props) => {
 
             const count = response.data;
             console.log(count);
+            setCount(0);
         } catch (e) {
             alert((e as any).message);
         }
@@ -81,8 +82,8 @@ const CounterContextProvider = (props: Props) => {
     return (
         <CounterContext.Provider
             value={{
-                // count,
-                isLoading,
+                count,
+                // isLoading,
                 // incrementCount,
                 // setContractCounter,
             }}
