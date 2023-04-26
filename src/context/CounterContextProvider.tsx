@@ -25,8 +25,8 @@ type StoreState = {
 const CounterContext = createContext<StoreState>({
   count: 0,
   isLoading: true,
-  incrementCount: () => {},
-  setContractCounter: (number) => {},
+  incrementCount: () => { },
+  setContractCounter: (number) => { },
 });
 
 export const useCounterStore = () => useContext(CounterContext);
@@ -139,4 +139,4 @@ const CounterContextProvider = (props: Props) => {
   );
 };
 
-export default CounterContextProvider;
+// export default CounterContextProvider;

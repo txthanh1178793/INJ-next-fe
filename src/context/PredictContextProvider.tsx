@@ -18,13 +18,13 @@ enum Status {
 type StoreState = {
     id: number;
     status: number;
-    totalUp: bigint;
-    totalDown: bigint;
-    startTime: bigint;
-    endTime: bigint;
-    startPrice: bigint;
-    upPosition: bigint;
-    downPosition: bigint;
+    totalUp: BigInt;
+    totalDown: BigInt;
+    startTime: BigInt;
+    endTime: BigInt;
+    startPrice: BigInt;
+    upPosition: BigInt;
+    downPosition: BigInt;
 
     // incrementCount: () => void;
     // setContractCounter: (number: string) => void;
@@ -33,13 +33,13 @@ type StoreState = {
 const CounterContext = createContext<StoreState>({
     id: 0,
     status: 0,
-    totalUp: 0,
-    totalDown: 0,
-    startTime: 0,
-    endTime: 0,
-    startPrice: 0,
-    upPosition: 0,
-    downPosition: 0,
+    totalUp: BigInt("0"),
+    totalDown: BigInt("0"),
+    startTime: BigInt("0"),
+    endTime: BigInt("0"),
+    startPrice: BigInt("0"),
+    upPosition: BigInt("0"),
+    downPosition: BigInt("0"),
 
     // incrementCount: () => { },
     // setContractCounter: (number) => { },
