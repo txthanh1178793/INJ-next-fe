@@ -65,13 +65,15 @@ const CounterContextProvider = (props: Props) => {
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
-                toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
+                // toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
+                toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
+
             );
 
-            const response2 = await chainGrpcWasmApi.fetchRawContractState(
-                PREDICT_CONTRACT_ADDRESS,
-                toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
-            );
+            // const response2 = await chainGrpcWasmApi.fetchRawContractState(
+            //     PREDICT_CONTRACT_ADDRESS,
+            //     toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
+            // );
             // const { count } = fromBase64(response.data) as { count: number };
             // setCount(count);
 
@@ -79,7 +81,7 @@ const CounterContextProvider = (props: Props) => {
 
             console.log(count);
             console.log(response);
-            console.log(response2);
+            // console.log(response2);
         } catch (e) {
             alert((e as any).message);
         }
