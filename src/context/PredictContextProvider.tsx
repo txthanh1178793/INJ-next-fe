@@ -70,7 +70,7 @@ const CounterContextProvider = (props: Props) => {
 
             ) as { data: string };
 
-            const count = fromBase64(response.data) as string;
+            const count = fromBase64(response.data);
             console.log();
 
             console.log("------------");
@@ -87,7 +87,7 @@ const CounterContextProvider = (props: Props) => {
             value={{
                 id: 0,
                 status: 0,
-                totalUp: BigInt("0"),
+                totalUp: count.totalUp,
                 totalDown: BigInt("0"),
                 startTime: BigInt("0"),
                 endTime: BigInt("0"),
