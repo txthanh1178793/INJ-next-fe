@@ -70,10 +70,10 @@ const CounterContextProvider = (props: Props) => {
 
             ) as { data: string };
             // console.log(response.data as string);
-            // const { count } = fromBase64(response.data);
+            const { count } = fromBase64(response);
             // const { count } = fromBase64(response.data) as { count: number };
             console.log("------------");
-            console.log(response);
+            console.log(count);
             console.log("------------");
 
             const response2 = await chainGrpcWasmApi.fetchSmartContractState(
