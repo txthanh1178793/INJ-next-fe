@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 // import ContextProvider from "@/context/ContextProvider";
-import CounterContextProvider from "@/context/CounterContextProvider";
+import CounterContextProvider from "@/context/PredictContextProvider";
 import WalletContextProvider from "@/context/WalletContextProvider";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
