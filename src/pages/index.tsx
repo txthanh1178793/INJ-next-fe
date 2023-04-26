@@ -6,15 +6,16 @@ type Props = {};
 
 function Home({ }: Props) {
   const [inputCount, setInputCount] = useState("0");
-  const { count, isLoading, incrementCount, setContractCounter } =
-    useCounterStore();
-  useEffect(() => {
-    setInputCount(count.toString());
-  }, [count]);
 
-  function handleSetCount() {
-    setContractCounter(inputCount);
-  }
+  const x = useCounterStore();
+  // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
+  // useEffect(() => {
+  //   setInputCount(count.toString());
+  // }, [count]);
+
+  // function handleSetCount() {
+  //   setContractCounter(inputCount);
+  // }
 
 
   return (
