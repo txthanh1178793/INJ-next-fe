@@ -69,29 +69,13 @@ const CounterContextProvider = (props: Props) => {
                 // toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
 
             ) as { data: string };
-            console.log(fromBase64(response.data));
-            // const { count } = fromBase64(response);
-            // const { count } = fromBase64(response.data) as { count: number };
 
-            const response2 = await chainGrpcWasmApi.fetchSmartContractState(
-                PREDICT_CONTRACT_ADDRESS,
-                toBase64({ bet_info: { bet_id: 0 } })
-            ) as { data: string };
-            // const { count } = fromBase64(response.data) as { count: number };
+            const count = fromBase64(response.data) as string;
+            console.log();
 
             console.log("------------");
             console.log(count);
             console.log("------------");
-
-
-            // console.log(response2);
-            // const { count } = fromBase64(response.data) as { count: number };
-            // setCount(count);
-
-            // const count = fromBase64(Buffer.from(response.data).toString("base64"));
-
-
-
             // 
         } catch (e) {
             alert((e as any).message);
