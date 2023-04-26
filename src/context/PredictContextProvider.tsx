@@ -80,12 +80,19 @@ const CounterContextProvider = (props: Props) => {
 
     return (
         <CounterContext.Provider
-        // value={{
-        // count,
-        // isLoading,
-        // incrementCount,
-        // setContractCounter,
-        // }}
+            value={{
+                id: 0,
+                status: 0,
+                totalUp: BigInt("0"),
+                totalDown: BigInt("0"),
+                startTime: BigInt("0"),
+                endTime: BigInt("0"),
+                startPrice: BigInt("0"),
+                upPosition: BigInt("0"),
+                downPosition: BigInt("0"),
+                // incrementCount,
+                // setContractCounter,
+            }}
         >
             {props.children}
         </CounterContext.Provider>
