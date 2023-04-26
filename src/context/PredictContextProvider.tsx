@@ -77,7 +77,7 @@ const CounterContextProvider = (props: Props) => {
 
             // const count = response.data;
 
-            console.log(JSON.parse(fromBase64(response)));
+            console.log(JSON.parse(fromBase64(response.data)));
             console.log(response);
             console.log(response2);
         } catch (e) {
