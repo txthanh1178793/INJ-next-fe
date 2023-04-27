@@ -117,7 +117,7 @@ const CounterContextProvider = (props: Props) => {
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
-                    execute_end_bet: {
+                    start: {
                         count: parseInt("10000", 10)
                     },
                 },
@@ -145,7 +145,7 @@ const CounterContextProvider = (props: Props) => {
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
-                    execute_end_bet: {
+                    end: {
                         count: parseInt("10000", 10)
                     },
                 },
