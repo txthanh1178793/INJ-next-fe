@@ -74,7 +74,7 @@ const CounterContextProvider = (props: Props) => {
             console.log();
 
             console.log("------------");
-            console.log(count);
+            console.log(count.totalUp);
             console.log("------------");
             // 
         } catch (e) {
@@ -87,7 +87,7 @@ const CounterContextProvider = (props: Props) => {
             value={{
                 id: 0,
                 status: 0,
-                totalUp: count.totalUp,
+                totalUp: BigInt("0"),
                 totalDown: BigInt("0"),
                 startTime: BigInt("0"),
                 endTime: BigInt("0"),
