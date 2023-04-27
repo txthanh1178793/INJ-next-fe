@@ -31,15 +31,15 @@ type StoreState = {
 };
 
 const CounterContext = createContext<StoreState>({
-    id: 0,
-    status: 0,
-    totalUp: BigInt("0"),
-    totalDown: BigInt("0"),
-    startTime: BigInt("0"),
-    endTime: BigInt("0"),
-    startPrice: BigInt("0"),
-    upPosition: BigInt("0"),
-    downPosition: BigInt("0"),
+    id: '0',
+    status: '0',
+    totalUp: '0',
+    totalDown: '0',
+    startTime: '0',
+    endTime: '0',
+    startPrice: '0',
+    upPosition: '0',
+    downPosition: '0',
 
     // incrementCount: () => { },
     // setContractCounter: (number) => { },
@@ -52,7 +52,17 @@ type Props = {
 };
 
 const CounterContextProvider = (props: Props) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState({
+        id: '0',
+        status: '0',
+        totalUp: '0',
+        totalDown: '0',
+        startTime: '0',
+        endTime: '0',
+        startPrice: '0',
+        upPosition: '0',
+        downPosition: '0',
+    });
     const [status, setStatus] = useState<Status>(Status.Idle);
     const isLoading = status == Status.Loading;
     const { injectiveAddress } = useWalletStore();
@@ -76,7 +86,17 @@ const CounterContextProvider = (props: Props) => {
             console.log("------------");
             console.log(count.totalUp);
             console.log("------------");
-            // 
+            setCount({
+                id: count.id as string,
+                status: count.status as string,
+                totalUp: count.totalUp as string,
+                totalDown: count.totalDown as string,
+                startTime: count.startTime as string,
+                endTime: count.endTime as string,
+                startPrice: count.startPrice as string,
+                upPosition: count.upPosition as string,
+                downPosition: count.downPosition as string,
+            });
         } catch (e) {
             alert((e as any).message);
         }
@@ -84,19 +104,7 @@ const CounterContextProvider = (props: Props) => {
 
     return (
         <CounterContext.Provider
-            value={{
-                id: 0,
-                status: 0,
-                totalUp: BigInt("0"),
-                totalDown: BigInt("0"),
-                startTime: BigInt("0"),
-                endTime: BigInt("0"),
-                startPrice: BigInt("0"),
-                upPosition: BigInt("0"),
-                downPosition: BigInt("0"),
-                // incrementCount,
-                // setContractCounter,
-            }}
+            value={count}
         >
             {props.children}
         </CounterContext.Provider>
