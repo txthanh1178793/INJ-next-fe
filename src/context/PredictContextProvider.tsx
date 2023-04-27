@@ -16,15 +16,15 @@ enum Status {
 }
 
 type StoreState = {
-    id: number;
-    status: number;
-    totalUp: BigInt;
-    totalDown: BigInt;
-    startTime: BigInt;
-    endTime: BigInt;
-    startPrice: BigInt;
-    upPosition: BigInt;
-    downPosition: BigInt;
+    id: string;
+    status: string;
+    totalUp: string;
+    totalDown: string;
+    startTime: string;
+    endTime: string;
+    startPrice: string;
+    upPosition: string;
+    downPosition: string;
 
     // incrementCount: () => void;
     // setContractCounter: (number: string) => void;
