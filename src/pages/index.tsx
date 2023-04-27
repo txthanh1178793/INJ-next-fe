@@ -17,7 +17,7 @@ function Home({ }: Props) {
     downPosition: '0',
   });;
 
-  const { data, incrementCount, setContractCounter } = useCounterStore();
+  const { data, startBet, endBet } = useCounterStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
   useEffect(() => {
     setInfo(data);
