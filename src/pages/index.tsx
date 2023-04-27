@@ -5,19 +5,27 @@ import Link from 'next/link';
 type Props = {};
 
 function Home({ }: Props) {
-  const [inputCount, setInputCount] = useState("0");
+  const [inputCount, setInputCount] = useState({
+    id: '0',
+    status: '0',
+    totalUp: '0',
+    totalDown: '0',
+    startTime: '0',
+    endTime: '0',
+    startPrice: '0',
+    upPosition: '0',
+    downPosition: '0',
+  });;
 
-  const x = useCounterStore();
+  const data = useCounterStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
-  // useEffect(() => {
-  //   setInputCount(count.toString());
-  // }, [count]);
+  useEffect(() => {
+    setInputCount(data);
+  }, [data]);
 
   // function handleSetCount() {
   //   setContractCounter(inputCount);
   // }
-
-
   return (
     <div>
       <body>
@@ -51,6 +59,14 @@ function Home({ }: Props) {
           <div className="sc-667a20da-4 eOKfsA">
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
+                <p>id:  {id}</p>
+                <p>totalUp: {totalUp}</p>
+                <p>totalDown: {totalDown}</p>
+                <p>startTime: {startTime}</p>
+                <p>endTime: {endTime}</p>
+                <p>startPrice: {startPrice}</p>
+                <p>upPosition: {upPosition}</p>
+                <p>downPosition: {downPosition}</p>
               </div>
             </div>
           </div>
@@ -60,5 +76,4 @@ function Home({ }: Props) {
   );
 
 }
-
 export default Home;

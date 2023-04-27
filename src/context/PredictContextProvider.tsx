@@ -10,6 +10,8 @@ import {
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useWalletStore } from "./WalletContextProvider";
 
+const default_addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
+
 enum Status {
     Idle = "idle",
     Loading = "loading",
@@ -47,6 +49,13 @@ const CounterContext = createContext<StoreState>({
 
 export const useCounterStore = () => useContext(CounterContext);
 
+
+
+
+
+
+
+
 type Props = {
     children?: React.ReactNode;
 };
@@ -72,20 +81,15 @@ const CounterContextProvider = (props: Props) => {
     }, []);
 
     async function fetchCount() {
+        let addr = default_addr;
+        if (injectiveAddress) addr = injectiveAddress;
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
-                toBase64({ current_info: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w" } })
-                // toBase64({ user_reward: { addr: "inj1lxz8ty4rdulcux5knduj686097gawxwmwe8w5w", bet_id: "0" } })
-
+                toBase64({ current_info: { addr: addr } })
             ) as { data: string };
 
             const count = fromBase64(response.data);
-            console.log();
-
-            console.log("------------");
-            console.log(count.totalUp);
-            console.log("------------");
             setCount({
                 id: count.id as string,
                 status: count.status as string,
