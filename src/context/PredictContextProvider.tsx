@@ -118,7 +118,7 @@ const CounterContextProvider = (props: Props) => {
                 sender: injectiveAddress,
                 msg: {
                     start: {
-                        price: 10000
+                        price: '10000'
                     },
                 },
             });
