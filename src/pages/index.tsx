@@ -5,7 +5,7 @@ import Link from 'next/link';
 type Props = {};
 
 function Home({ }: Props) {
-  const [inputCount, setInputCount] = useState({
+  const [info, setInfo] = useState({
     id: '0',
     status: '0',
     totalUp: '0',
@@ -17,10 +17,10 @@ function Home({ }: Props) {
     downPosition: '0',
   });;
 
-  const data = useCounterStore();
+  const { data, incrementCount, setContractCounter } = useCounterStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
   useEffect(() => {
-    setInputCount(data);
+    setInfo(data);
   }, [data]);
 
   // function handleSetCount() {
@@ -60,14 +60,14 @@ function Home({ }: Props) {
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
                 <ul>
-                  <li>id:  {data.id}</li>
-                  <li>totalUp: {data.totalUp}</li>
-                  <li>totalDown: {data.totalDown}</li>
-                  <li>startTime: {data.startTime}</li>
-                  <li>endTime: {data.endTime}</li>
-                  <li>startPrice: {data.startPrice}</li>
-                  <li>upPosition: {data.upPosition}</li>
-                  <li>downPosition: {data.downPosition}</li>
+                  <li>id:  {info.id}</li>
+                  <li>totalUp: {info.totalUp}</li>
+                  <li>totalDown: {info.totalDown}</li>
+                  <li>startTime: {info.startTime}</li>
+                  <li>endTime: {info.endTime}</li>
+                  <li>startPrice: {info.startPrice}</li>
+                  <li>upPosition: {info.upPosition}</li>
+                  <li>downPosition: {info.downPosition}</li>
                 </ul>
               </div>
             </div>
