@@ -33,24 +33,22 @@ type StoreState = {
 };
 
 const CounterContext = createContext<StoreState>({
-    id: '0',
-    status: '0',
-    totalUp: '0',
-    totalDown: '0',
-    startTime: '0',
-    endTime: '0',
-    startPrice: '0',
-    upPosition: '0',
-    downPosition: '0',
-
-    // incrementCount: () => { },
-    // setContractCounter: (number) => { },
+    data: {
+        id: '0',
+        status: '0',
+        totalUp: '0',
+        totalDown: '0',
+        startTime: '0',
+        endTime: '0',
+        startPrice: '0',
+        upPosition: '0',
+        downPosition: '0',
+    },
+    startBet: () => { },
+    endBet: () => { },
 });
 
 export const useCounterStore = () => useContext(CounterContext);
-
-
-
 
 
 
@@ -106,9 +104,70 @@ const CounterContextProvider = (props: Props) => {
         }
     }
 
+    async function startBet() {
+        if (!injectiveAddress) {
+            alert("No Wallet Connected");
+            return;
+        }
+
+        try {
+            const msg = MsgExecuteContractCompat.fromJSON({
+                contractAddress: PREDICT_CONTRACT_ADDRESS,
+                sender: injectiveAddress,
+                msg: {
+                    execute_end_bet: {
+                        count: parseInt("10000", 10)
+                    },
+                },
+            });
+
+            await msgBroadcastClient.broadcast({
+                msgs: msg,
+                injectiveAddress: injectiveAddress,
+            });
+        } catch (e) {
+            alert((e as any).message);
+        } finally {
+            setStatus(Status.Idle);
+        }
+    }
+
+    async function endBet() {
+        if (!injectiveAddress) {
+            alert("No Wallet Connected");
+            return;
+        }
+
+        try {
+            const msg = MsgExecuteContractCompat.fromJSON({
+                contractAddress: PREDICT_CONTRACT_ADDRESS,
+                sender: injectiveAddress,
+                msg: {
+                    execute_end_bet: {
+                        count: parseInt("10000", 10)
+                    },
+                },
+            });
+
+            await msgBroadcastClient.broadcast({
+                msgs: msg,
+                injectiveAddress: injectiveAddress,
+            });
+        } catch (e) {
+            alert((e as any).message);
+        } finally {
+            setStatus(Status.Idle);
+        }
+    }
+
+
     return (
         <CounterContext.Provider
-            value={count}
+            value={{
+                count,
+                startBet,
+                endBet
+            }}
         >
             {props.children}
         </CounterContext.Provider>
