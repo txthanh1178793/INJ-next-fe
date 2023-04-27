@@ -166,7 +166,7 @@ const CounterContextProvider = (props: Props) => {
     return (
         <CounterContext.Provider
             value={{
-                count,
+                data: count,
                 startBet,
                 endBet
             }}
