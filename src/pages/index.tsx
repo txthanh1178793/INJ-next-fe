@@ -23,9 +23,13 @@ function Home({ }: Props) {
     setInfo(data);
   }, [data]);
 
-  // function handleSetCount() {
-  //   setContractCounter(inputCount);
-  // }
+  function handleStartBet() {
+    startBet();
+  }
+
+  function handleEndBet() {
+    endBet();
+  }
   return (
     <div>
       <body>
@@ -69,6 +73,16 @@ function Home({ }: Props) {
                   <li>upPosition: {info.upPosition}</li>
                   <li>downPosition: {info.downPosition}</li>
                 </ul>
+                <div>
+                  <button onClick={handleStartBet} className='qopKT chfQFH'>
+                    Start
+                  </button>
+                </div>
+                <div>
+                  <button onClick={handleEndBet} className='qopKT chfQFH'>
+                    End
+                  </button>
+                </div>
               </div>
             </div>
           </div>
