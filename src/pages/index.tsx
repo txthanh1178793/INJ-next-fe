@@ -63,23 +63,25 @@ function Home({ }: Props) {
           <div className="sc-667a20da-4 eOKfsA">
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
-                <ul>
-                  <li>id:  {info.id}</li>
-                  <li>totalUp: {info.totalUp}</li>
-                  <li>totalDown: {info.totalDown}</li>
-                  <li>startTime: {info.startTime}</li>
-                  <li>endTime: {info.endTime}</li>
-                  <li>startPrice: {info.startPrice}</li>
-                  <li>upPosition: {info.upPosition}</li>
-                  <li>downPosition: {info.downPosition}</li>
-                </ul>
                 <div>
-                  <button onClick={handleStartBet} className='qopKT chfQFH'>
+                  <ul>
+                    <li>id:  {info.id}</li>
+                    <li>totalUp: {info.totalUp}</li>
+                    <li>totalDown: {info.totalDown}</li>
+                    <li>startTime: {info.startTime}</li>
+                    <li>endTime: {info.endTime}</li>
+                    <li>startPrice: {info.startPrice}</li>
+                    <li>upPosition: {info.upPosition}</li>
+                    <li>downPosition: {info.downPosition}</li>
+                  </ul>
+                </div>
+                <div>
+                  <button onClick={handleStartBet} className='sc-56a7a3a9-0 cyLbdv'>
                     Start
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleEndBet} className='qopKT chfQFH'>
+                  <button onClick={handleEndBet} className='sc-56a7a3a9-0 cyLbdv'>
                     End
                   </button>
                 </div>
