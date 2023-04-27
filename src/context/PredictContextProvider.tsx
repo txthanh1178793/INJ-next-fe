@@ -118,7 +118,7 @@ const CounterContextProvider = (props: Props) => {
                 sender: injectiveAddress,
                 msg: {
                     start: {
-                        count: parseInt("10000", 10)
+                        price: parseInt("10000", 10)
                     },
                 },
             });
@@ -146,7 +146,7 @@ const CounterContextProvider = (props: Props) => {
                 sender: injectiveAddress,
                 msg: {
                     end: {
-                        count: parseInt("10000", 10)
+                        price: parseInt("10000", 10)
                     },
                 },
             });
