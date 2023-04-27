@@ -66,7 +66,7 @@ function Home({ }: Props) {
                 <li>endTime: {data.endTime}</li>
                 <li>startPrice: {data.startPrice}</li>
                 <li>upPosition: {data.upPosition}</li>
-                <pli>downPosition: {data.downPosition}</li>
+                <li>downPosition: {data.downPosition}</li>
               </div>
             </div>
           </div>
