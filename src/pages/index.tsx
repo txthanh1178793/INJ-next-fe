@@ -59,14 +59,14 @@ function Home({ }: Props) {
           <div className="sc-667a20da-4 eOKfsA">
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
-                <p>id:  {data.id}{'\n'}</p>
-                <p>totalUp: {data.totalUp}{'\n'}</p>
-                <p>totalDown: {data.totalDown}{'\n'}</p>
-                <p>startTime: {data.startTime}{'\n'}</p>
-                <p>endTime: {data.endTime}{'\n'}</p>
-                <p>startPrice: {data.startPrice}{'\n'}</p>
-                <p>upPosition: {data.upPosition}{'\n'}</p>
-                <p>downPosition: {data.downPosition}{'\n'}</p>
+                <p><br>id:  {data.id}{'\n'}</br></p>
+                <p><br>totalUp: {data.totalUp}{'\n'}</br></p>
+                <p><br>totalDown: {data.totalDown}{'\n'}</br></p>
+                <p><br>startTime: {data.startTime}{'\n'}</br></p>
+                <p><br>endTime: {data.endTime}{'\n'}</br></p>
+                <p><br>startPrice: {data.startPrice}{'\n'}</br></p>
+                <p><br>upPosition: {data.upPosition}{'\n'}</br></p>
+                <p><br>downPosition: {data.downPosition}{'\n'}</br></p>
               </div>
             </div>
           </div>
