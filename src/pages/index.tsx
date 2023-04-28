@@ -98,7 +98,7 @@ function Home({ }: Props) {
                         />
                         <button
                           // onClick={handleUpBet}
-                          onClick={handleUpBet()}
+                          onClick={handleUpBet}
                           className='btn'
                           disabled={info.status != "1"}
                         >
