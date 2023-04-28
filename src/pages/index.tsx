@@ -105,6 +105,7 @@ function Home({ }: Props) {
                       <div className=''>
                         <input
                           type='number'
+                          maxLength={6}
                           value={inputValue}
                           onChange={(e) => handleChange(e)}
                           className='border rounded-lg p-2 input'
