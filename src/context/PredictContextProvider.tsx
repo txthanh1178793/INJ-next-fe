@@ -34,7 +34,7 @@ type StoreState = {
     },
     startBet: () => void,
     endBet: () => void,
-    upBet: () => void,
+    upBet: (value: string) => void,
     // downBet: () => void,
 };
 
@@ -52,7 +52,7 @@ const PredictContext = createContext<StoreState>({
     },
     startBet: () => { },
     endBet: () => { },
-    upBet: () => { },
+    upBet: (value) => { },
     // downBet: () => { },
 });
 
