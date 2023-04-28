@@ -31,8 +31,7 @@ function Home({ }: Props) {
     endBet();
   }
   function handleUpBet() {
-    alert("Up bet");
-    // upBet();
+    upBet();
   }
 
   return (
