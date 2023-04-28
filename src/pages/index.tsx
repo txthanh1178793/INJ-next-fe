@@ -97,7 +97,8 @@ function Home({ }: Props) {
                           className='border rounded-lg p-2'
                         />
                         <button
-                          onClick={handleUpBet}
+                          // onClick={handleUpBet}
+                          onClick={alert("Up bet")}
                           className='btn'
                           disabled={info.status != "1"}
                         >
