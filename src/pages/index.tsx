@@ -89,17 +89,17 @@ function Home({ }: Props) {
                       <div className=''>
                         <input
                           type='number'
-                          value={inputCount}
+                          value={inputValue}
                           step={1}
-                          onChange={(e) => setInputCount(e.target.value)}
+                          onChange={(e) => setinputValue(e.target.value)}
                           className='border rounded-lg p-2'
                         />
                         <button
-                          onClick={handleSetCount}
+                          onClick={upBet()}
                           className='btn'
                           disabled={info.status != "1"}
                         >
-                          Set Count
+                          UpBet
                         </button>
                       </div>
                     </li>
