@@ -157,11 +157,15 @@ function Home({ }: Props) {
                           onChange={(e) => setInpuId(e.target.value)}
                           className='border rounded-lg p-2 input'
                         />
+                      </div>
+                      <div>
                         <input
                           value={inpuId}
                           onChange={(e) => setInputAddress(e.target.value)}
                           className='border rounded-lg p-2 input'
                         />
+                      </div>
+                      <div>
                         <button
                           // onClick={handleUpBet}
                           onClick={handleQueryBetInfo}
