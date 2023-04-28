@@ -1,4 +1,4 @@
-import { COUNTER_CONTRACT_ADDRESS, PREDICT_CONTRACT_ADDRESS } from "@/services/constants";
+import { PREDICT_CONTRACT_ADDRESS } from "@/services/constants";
 import { chainGrpcWasmApi, msgBroadcastClient } from "@/services/services";
 import { getAddresses } from "@/services/wallet";
 import {
