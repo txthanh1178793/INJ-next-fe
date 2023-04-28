@@ -34,6 +34,14 @@ function Home({ }: Props) {
     upBet(inputValue);
   }
 
+  function handleInputValue(event: Event) {
+    let { value, min, max } = event.target;
+    value = Math.max(Number(min), Math.min(Number(max), Number(inputValue)));
+
+    setInputValue(value);
+  };
+
+
   return (
     <div>
       <body>
@@ -95,7 +103,7 @@ function Home({ }: Props) {
                           value={inputValue}
                           min="0.001"
                           max="1000"
-                          onChange={(e) => setInputValue(e.target.value as string)}
+                          onChange={(e) => handleInputValue(e)}
                           className='border rounded-lg p-2 input'
                         />
                         <button
