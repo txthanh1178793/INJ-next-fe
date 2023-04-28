@@ -171,7 +171,7 @@ const PredictContextProvider = (props: Props) => {
         }
         const amount = {
             denom: 'inj',
-            amount: (parseFloat(value) * 1000000000000000000, 10).toString()
+            amount: BigInt((parseFloat(value) * 1000000000000000000)).toString()
         }
 
         try {

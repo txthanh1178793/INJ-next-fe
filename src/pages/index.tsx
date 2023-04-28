@@ -93,6 +93,7 @@ function Home({ }: Props) {
                         <input
                           type='number'
                           value={inputValue}
+                          min="0.001" max="1000"
                           onChange={(e) => setInputValue(e.target.value as string)}
                           className='border rounded-lg p-2'
                         />
