@@ -3,6 +3,7 @@ import { chainGrpcWasmApi, msgBroadcastClient } from "@/services/services";
 import { getAddresses } from "@/services/wallet";
 import { BigNumberInBase } from '@injectivelabs/utils'
 import {
+    MsgSend,
     MsgExecuteContractCompat,
     fromBase64,
     getInjectiveAddress,
@@ -172,6 +173,11 @@ const PredictContextProvider = (props: Props) => {
             denom: 'inj',
             amount: new BigNumberInBase(100000000000000001).toWei()
         }
+        const msg_send = MsgSend.fromJSON({
+            amount,
+            srcInjectiveAddress: injectiveAddress,
+            dstInjectiveAddress: PREDICT_CONTRACT_ADDRESS,
+        });
 
         try {
             const msg = MsgExecuteContractCompat.fromJSON({

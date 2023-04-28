@@ -27,10 +27,13 @@ function Home({ }: Props) {
   function handleStartBet() {
     startBet();
   }
-
   function handleEndBet() {
     endBet();
   }
+  function handleUpBet() {
+    upBet();
+  }
+
   return (
     <div>
       <body>
@@ -95,7 +98,7 @@ function Home({ }: Props) {
                           className='border rounded-lg p-2'
                         />
                         <button
-                          onClick={upBet()}
+                          onClick={handleUpBet}
                           className='btn'
                           disabled={info.status != "1"}
                         >
