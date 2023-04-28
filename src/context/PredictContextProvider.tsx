@@ -285,10 +285,13 @@ const PredictContextProvider = (props: Props) => {
         <PredictContext.Provider
             value={{
                 data: info,
+                queryBetInfo,
+                queryReward,
                 startBet,
                 endBet,
                 upBet,
                 downBet,
+                claimReward,
             }}
         >
             {props.children}
