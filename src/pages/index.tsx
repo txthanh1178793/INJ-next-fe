@@ -93,7 +93,6 @@ function Home({ }: Props) {
                         <input
                           type='number'
                           value={inputValue}
-                          step={1}
                           onChange={(e) => setInputValue(e.target.value)}
                           className='border rounded-lg p-2'
                         />
