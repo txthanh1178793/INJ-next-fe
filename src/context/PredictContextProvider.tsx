@@ -32,10 +32,13 @@ type StoreState = {
         downPosition: string;
 
     },
+    queryBetInfo: (value: string) => void,
+    queryReward: (address: string, id: string) => void,
     startBet: () => void,
     endBet: () => void,
     upBet: (value: string) => void,
-    // downBet: () => void,
+    downBet: (value: string) => void,
+    claimReward: (value: string) => void,
 };
 
 const PredictContext = createContext<StoreState>({
@@ -50,10 +53,13 @@ const PredictContext = createContext<StoreState>({
         upPosition: '0',
         downPosition: '0',
     },
+    queryBetInfo: (value) => { },
+    queryReward: (address, id) => { },
     startBet: () => { },
     endBet: () => { },
     upBet: (value) => { },
-    // downBet: () => { },
+    downBet: (value) => { },
+    claimReward: (value) => { },
 });
 
 export const useCounterStore = () => useContext(PredictContext);
@@ -110,6 +116,33 @@ const PredictContextProvider = (props: Props) => {
         }
     }
 
+    async function queryBetInfo(value: string) {
+        try {
+            const response = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ bet_info: { bet_id: value } })
+            ) as { data: string };
+
+            const info = fromBase64(response.data);
+            alert(info);
+        } catch (e) {
+            alert((e as any).message);
+        }
+    }
+    async function queryReward(address: string, id: string) {
+
+        try {
+            const response = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ beuser_reward: { addr: address, bet_id: id } })
+            ) as { data: string };
+
+            const info = fromBase64(response.data);
+            alert(info);
+        } catch (e) {
+            alert((e as any).message);
+        }
+    }
     async function startBet() {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
@@ -193,6 +226,59 @@ const PredictContextProvider = (props: Props) => {
             alert((e as any).message);
         }
     }
+    async function downBet(value: string) {
+        if (!injectiveAddress) {
+            alert("No Wallet Connected");
+            return;
+        }
+        const amount = {
+            denom: 'inj',
+            amount: BigInt((parseFloat(value) * 1000000000000000000)).toString()
+        }
+
+        try {
+            const msg = MsgExecuteContractCompat.fromJSON({
+                funds: amount,
+                contractAddress: PREDICT_CONTRACT_ADDRESS,
+                sender: injectiveAddress,
+                msg: {
+                    up_bet: {},
+                },
+            });
+
+            await msgBroadcastClient.broadcast({
+                msgs: msg,
+                injectiveAddress: injectiveAddress,
+            });
+            fetchCurrentInfo();
+        } catch (e) {
+            alert((e as any).message);
+        }
+    }
+
+    async function claimReward(value: string) {
+        if (!injectiveAddress) {
+            alert("No Wallet Connected");
+            return;
+        }
+        try {
+            const msg = MsgExecuteContractCompat.fromJSON({
+                contractAddress: PREDICT_CONTRACT_ADDRESS,
+                sender: injectiveAddress,
+                msg: {
+                    claim: { bet_id: value },
+                },
+            });
+
+            await msgBroadcastClient.broadcast({
+                msgs: msg,
+                injectiveAddress: injectiveAddress,
+            });
+            fetchCurrentInfo();
+        } catch (e) {
+            alert((e as any).message);
+        }
+    }
 
 
     return (
@@ -202,7 +288,7 @@ const PredictContextProvider = (props: Props) => {
                 startBet,
                 endBet,
                 upBet,
-                // downBet
+                downBet,
             }}
         >
             {props.children}

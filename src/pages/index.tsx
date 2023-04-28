@@ -6,6 +6,8 @@ type Props = {};
 
 function Home({ }: Props) {
   const [inputValue, setInputValue] = useState("0");
+  const [inputAddress, setInputAddress] = useState("0");
+  const [inpuId, setInpuId] = useState("0");
   const [info, setInfo] = useState({
     id: '0',
     status: '0',
@@ -18,7 +20,15 @@ function Home({ }: Props) {
     downPosition: '0',
   });;
 
-  const { data, startBet, endBet, upBet } = useCounterStore();
+  const { data,
+    queryBetInfo,
+    queryReward,
+    startBet,
+    endBet,
+    upBet,
+    downBet,
+    claimReward,
+  } = useCounterStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
   useEffect(() => {
     setInfo(data);
@@ -33,7 +43,18 @@ function Home({ }: Props) {
   function handleUpBet() {
     upBet(inputValue);
   }
-
+  function handleDownBet() {
+    downBet(inputValue);
+  }
+  function handleClaimReward() {
+    claimReward(inpuId);
+  }
+  function handleQueryBetInfo() {
+    queryBetInfo(inpuId);
+  }
+  function handleQueryReward() {
+    queryReward(inputAddress, inpuId);
+  }
   function handleChange(event: any) {
     let { value, min, max } = event.target;
 
@@ -105,7 +126,7 @@ function Home({ }: Props) {
                       <div className=''>
                         <input
                           type='number'
-                          maxLength={6}
+                          maxLength={10}
                           value={inputValue}
                           onChange={(e) => handleChange(e)}
                           className='border rounded-lg p-2 input'
@@ -118,9 +139,52 @@ function Home({ }: Props) {
                         >
                           UpBet
                         </button>
+                        <button
+                          // onClick={handleUpBet}
+                          onClick={handleDownBet}
+                          className='btn'
+                          disabled={info.status != "1"}
+                        >
+                          DownBet
+                        </button>
                       </div>
                     </li>
-                    <li></li>
+                    <li>
+                      <div>
+                        <input
+                          type='number'
+                          value={inpuId}
+                          onChange={(e) => setInpuId(e.target.value)}
+                          className='border rounded-lg p-2 input'
+                        />
+                        <input
+                          value={inpuId}
+                          onChange={(e) => setInputAddress(e.target.value)}
+                          className='border rounded-lg p-2 input'
+                        />
+                        <button
+                          // onClick={handleUpBet}
+                          onClick={handleQueryBetInfo}
+                          className='btn'
+                        >
+                          Query Bet Info
+                        </button>
+                        <button
+                          // onClick={handleUpBet}
+                          onClick={handleQueryReward}
+                          className='btn'
+                        >
+                          Query Reward
+                        </button>
+                        <button
+                          // onClick={handleUpBet}
+                          onClick={handleClaimReward}
+                          className='btn'
+                        >
+                          Claim Reward
+                        </button>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
