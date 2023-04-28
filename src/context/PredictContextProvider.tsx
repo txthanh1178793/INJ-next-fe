@@ -164,14 +164,14 @@ const PredictContextProvider = (props: Props) => {
 
         }
     }
-    async function upBet() {
+    async function upBet(value: string) {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
         }
         const amount = {
             denom: 'inj',
-            amount: "1000000000000000000"
+            amount: (parseInt(value, 10) * 1000000000000000000).toString()
         }
 
         try {
@@ -180,7 +180,7 @@ const PredictContextProvider = (props: Props) => {
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
-                    down_bet: {},
+                    up_bet: {},
                 },
             });
 

@@ -31,7 +31,7 @@ function Home({ }: Props) {
     endBet();
   }
   function handleUpBet() {
-    upBet();
+    upBet(inputValue);
   }
 
   return (
@@ -93,7 +93,7 @@ function Home({ }: Props) {
                         <input
                           type='number'
                           value={inputValue}
-                          onChange={(e) => setInputValue(e.target.value)}
+                          onChange={(e) => setInputValue(e.target.value as string)}
                           className='border rounded-lg p-2'
                         />
                         <button
