@@ -133,11 +133,9 @@ const PredictContextProvider = (props: Props) => {
             fetchCurrentInfo();
         } catch (e) {
             alert((e as any).message);
-        } finally {
-            setStatus(Status.Idle);
+
         }
     }
-
     async function endBet() {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
@@ -162,11 +160,9 @@ const PredictContextProvider = (props: Props) => {
             fetchCurrentInfo();
         } catch (e) {
             alert((e as any).message);
-        } finally {
-            setStatus(Status.Idle);
+
         }
     }
-
     async function upBet() {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
@@ -194,11 +190,8 @@ const PredictContextProvider = (props: Props) => {
             fetchCurrentInfo();
         } catch (e) {
             alert((e as any).message);
-        } finally {
-            setStatus(Status.Idle);
         }
     }
-
 
 
     return (
