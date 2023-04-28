@@ -36,8 +36,13 @@ function Home({ }: Props) {
 
   function handleChange(event: any) {
     let { value, min, max } = event.target;
-    value = Math.max(Number(min), Math.min(Number(max), Number(inputValue)));
 
+    if (Number(value) > 1000) {
+      value = 1000;
+    }
+    if (Number(value) < 0.001) {
+      value = 0.001;
+    }
     setInputValue(value);
   };
 
@@ -101,8 +106,6 @@ function Home({ }: Props) {
                         <input
                           type='number'
                           value={inputValue}
-                          min="0.001"
-                          max="1000"
                           onChange={(e) => handleChange(e)}
                           className='border rounded-lg p-2 input'
                         />
