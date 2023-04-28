@@ -1,6 +1,7 @@
 import { PREDICT_CONTRACT_ADDRESS } from "@/services/constants";
 import { chainGrpcWasmApi, msgBroadcastClient } from "@/services/services";
 import { getAddresses } from "@/services/wallet";
+import { BigNumberInBase } from '@injectivelabs/utils'
 import {
     MsgExecuteContractCompat,
     fromBase64,
@@ -32,9 +33,11 @@ type StoreState = {
     },
     startBet: () => void,
     endBet: () => void,
+    upBet: () => void,
+    // downBet: () => void,
 };
 
-const CounterContext = createContext<StoreState>({
+const PredictContext = createContext<StoreState>({
     data: {
         id: '0',
         status: '0',
@@ -48,9 +51,11 @@ const CounterContext = createContext<StoreState>({
     },
     startBet: () => { },
     endBet: () => { },
+    upBet: () => { },
+    // downBet: () => { },
 });
 
-export const useCounterStore = () => useContext(CounterContext);
+export const useCounterStore = () => useContext(PredictContext);
 
 
 
@@ -60,8 +65,8 @@ type Props = {
     children?: React.ReactNode;
 };
 
-const CounterContextProvider = (props: Props) => {
-    const [count, setCount] = useState({
+const PredictContextProvider = (props: Props) => {
+    const [info, setInfo] = useState({
         id: '0',
         status: '0',
         totalUp: '0',
@@ -72,8 +77,6 @@ const CounterContextProvider = (props: Props) => {
         upPosition: '0',
         downPosition: '0',
     });
-    const [status, setStatus] = useState<Status>(Status.Idle);
-    const isLoading = status == Status.Loading;
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
@@ -89,17 +92,17 @@ const CounterContextProvider = (props: Props) => {
                 toBase64({ current_info: { addr: addr } })
             ) as { data: string };
 
-            const count = fromBase64(response.data);
-            setCount({
-                id: count.id as string,
-                status: count.status as string,
-                totalUp: count.totalUp as string,
-                totalDown: count.totalDown as string,
-                startTime: count.startTime as string,
-                endTime: count.endTime as string,
-                startPrice: count.startPrice as string,
-                upPosition: count.upPosition as string,
-                downPosition: count.downPosition as string,
+            const info = fromBase64(response.data);
+            setInfo({
+                id: info.id as string,
+                status: info.status as string,
+                totalUp: info.totalUp as string,
+                totalDown: info.totalDown as string,
+                startTime: info.startTime as string,
+                endTime: info.endTime as string,
+                startPrice: info.startPrice as string,
+                upPosition: info.upPosition as string,
+                downPosition: info.downPosition as string,
             });
         } catch (e) {
             alert((e as any).message);
@@ -164,17 +167,52 @@ const CounterContextProvider = (props: Props) => {
         }
     }
 
+    async function upBet() {
+        if (!injectiveAddress) {
+            alert("No Wallet Connected");
+            return;
+        }
+        const amount = {
+            denom: 'inj',
+            amount: new BigNumberInBase(100000000000000001).toWei()
+        }
+
+        try {
+            const msg = MsgExecuteContractCompat.fromJSON({
+                amount,
+                contractAddress: PREDICT_CONTRACT_ADDRESS,
+                sender: injectiveAddress,
+                msg: {
+                    up_bet: {},
+                },
+            });
+
+            await msgBroadcastClient.broadcast({
+                msgs: msg,
+                injectiveAddress: injectiveAddress,
+            });
+            fetchCurrentInfo();
+        } catch (e) {
+            alert((e as any).message);
+        } finally {
+            setStatus(Status.Idle);
+        }
+    }
+
+
 
     return (
-        <CounterContext.Provider
+        <PredictContext.Provider
             value={{
-                data: count,
+                data: info,
                 startBet,
-                endBet
+                endBet,
+                upBet,
+                // downBet
             }}
         >
             {props.children}
-        </CounterContext.Provider>
+        </PredictContext.Provider>
     );
 };
-export default CounterContextProvider;
+export default PredictContextProvider;

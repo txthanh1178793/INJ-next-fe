@@ -5,6 +5,7 @@ import Link from 'next/link';
 type Props = {};
 
 function Home({ }: Props) {
+  const [inputValue, setInputValue] = useState("0");
   const [info, setInfo] = useState({
     id: '0',
     status: '0',
@@ -17,7 +18,7 @@ function Home({ }: Props) {
     downPosition: '0',
   });;
 
-  const { data, startBet, endBet } = useCounterStore();
+  const { data, startBet, endBet, upBet } = useCounterStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
   useEffect(() => {
     setInfo(data);
@@ -85,7 +86,22 @@ function Home({ }: Props) {
                       </button
                       ></li>
                     <li>
-
+                      <div className=''>
+                        <input
+                          type='number'
+                          value={inputCount}
+                          step={1}
+                          onChange={(e) => setInputCount(e.target.value)}
+                          className='border rounded-lg p-2'
+                        />
+                        <button
+                          onClick={handleSetCount}
+                          className='btn'
+                          disabled={info.status != "1"}
+                        >
+                          Set Count
+                        </button>
+                      </div>
                     </li>
                     <li></li>
                   </ul>
