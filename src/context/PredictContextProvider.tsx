@@ -171,7 +171,7 @@ const PredictContextProvider = (props: Props) => {
         }
         const amount = {
             denom: 'inj',
-            amount: new BigNumberInBase(100000000000000001).toWei()
+            amount: "100000000000000000"
         }
         // const msg_send = MsgSend.fromJSON({
         //     amount,
