@@ -170,8 +170,8 @@ const PredictContextProvider = (props: Props) => {
             return;
         }
         const amount = {
-            denom: 'INJ',
-            amount: "1"
+            denom: 'inj',
+            amount: "1000000000000000000"
         }
 
         try {
