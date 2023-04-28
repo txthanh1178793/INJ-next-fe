@@ -142,9 +142,14 @@ const PredictContextProvider = (props: Props) => {
             alert("No Wallet Connected");
             return;
         }
+        const amount = {
+            denom: 'inj',
+            amount: "1"
+        }
 
         try {
             const msg = MsgExecuteContractCompat.fromJSON({
+                funds: amount,
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
@@ -173,12 +178,6 @@ const PredictContextProvider = (props: Props) => {
             denom: 'inj',
             amount: "1"
         }
-        // const msg_send = MsgSend.fromJSON({
-        //     amount,
-        //     srcInjectiveAddress: injectiveAddress,
-        //     dstInjectiveAddress: PREDICT_CONTRACT_ADDRESS,
-        // });
-
         try {
             const msg = MsgExecuteContractCompat.fromJSON({
                 funds: amount,
