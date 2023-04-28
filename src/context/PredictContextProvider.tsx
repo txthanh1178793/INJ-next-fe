@@ -175,7 +175,7 @@ const PredictContextProvider = (props: Props) => {
 
         try {
             const msg = MsgExecuteContractCompat.fromJSON({
-                amount,
+                // amount,
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
