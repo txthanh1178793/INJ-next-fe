@@ -171,7 +171,7 @@ const PredictContextProvider = (props: Props) => {
         }
         const amount = {
             denom: 'inj',
-            amount: "10000"
+            amount: "1"
         }
         // const msg_send = MsgSend.fromJSON({
         //     amount,
