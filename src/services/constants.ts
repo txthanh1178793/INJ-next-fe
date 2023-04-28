@@ -30,7 +30,5 @@ export const IS_TESTNET: Boolean = [
   Network.TestnetK8s,
 ].includes(NETWORK);
 
-export const COUNTER_CONTRACT_ADDRESS =
-  "inj1t8rhq5vcxqgw68ldg0k2mjxjvzshuah6tnugvy";
 
-export const PREDICT_CONTRACT_ADDRESS = "inj1y3dktp9wd4s7kyq8untcuz4p47knkw5xjkpdc5";
+export const PREDICT_CONTRACT_ADDRESS = "inj1jj2r2mypd7ky65ecusmeafmwmntaxdss5xrw6z";

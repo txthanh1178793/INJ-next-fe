@@ -66,6 +66,7 @@ function Home({ }: Props) {
                 <div>
                   <ul>
                     <li>id:  {info.id}</li>
+                    <li>status:  {info.status}</li>
                     <li>totalUp: {info.totalUp}</li>
                     <li>totalDown: {info.totalDown}</li>
                     <li>startTime: {info.startTime}</li>
