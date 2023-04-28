@@ -74,17 +74,21 @@ function Home({ }: Props) {
                     <li>startPrice: {info.startPrice}</li>
                     <li>upPosition: {info.upPosition}</li>
                     <li>downPosition: {info.downPosition}</li>
+                    <li>
+                      <button onClick={handleStartBet} className='sc-56a7a3a9-0 cyLbdv'>
+                        Start
+                      </button>
+                    </li>
+                    <li>
+                      <button onClick={handleEndBet} className='sc-56a7a3a9-0 cyLbdv'>
+                        End
+                      </button
+                      ></li>
+                    <li>
+
+                    </li>
+                    <li></li>
                   </ul>
-                </div>
-                <div>
-                  <button onClick={handleStartBet} className='sc-56a7a3a9-0 cyLbdv'>
-                    Start
-                  </button>
-                </div>
-                <div>
-                  <button onClick={handleEndBet} className='sc-56a7a3a9-0 cyLbdv'>
-                    End
-                  </button>
                 </div>
               </div>
             </div>
