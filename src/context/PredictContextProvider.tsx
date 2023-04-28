@@ -77,10 +77,10 @@ const CounterContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        fetchCount();
+        fetchCurrentInfo();
     }, []);
 
-    async function fetchCount() {
+    async function fetchCurrentInfo() {
         let addr = default_addr;
         if (injectiveAddress) addr = injectiveAddress;
         try {
@@ -127,6 +127,7 @@ const CounterContextProvider = (props: Props) => {
                 msgs: msg,
                 injectiveAddress: injectiveAddress,
             });
+            fetchCurrentInfo();
         } catch (e) {
             alert((e as any).message);
         } finally {
@@ -155,6 +156,7 @@ const CounterContextProvider = (props: Props) => {
                 msgs: msg,
                 injectiveAddress: injectiveAddress,
             });
+            fetchCurrentInfo();
         } catch (e) {
             alert((e as any).message);
         } finally {
