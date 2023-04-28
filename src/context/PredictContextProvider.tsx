@@ -173,11 +173,11 @@ const PredictContextProvider = (props: Props) => {
             denom: 'inj',
             amount: new BigNumberInBase(100000000000000001).toWei()
         }
-        const msg_send = MsgSend.fromJSON({
-            amount,
-            srcInjectiveAddress: injectiveAddress,
-            dstInjectiveAddress: PREDICT_CONTRACT_ADDRESS,
-        });
+        // const msg_send = MsgSend.fromJSON({
+        //     amount,
+        //     srcInjectiveAddress: injectiveAddress,
+        //     dstInjectiveAddress: PREDICT_CONTRACT_ADDRESS,
+        // });
 
         try {
             const msg = MsgExecuteContractCompat.fromJSON({
