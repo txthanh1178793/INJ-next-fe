@@ -31,7 +31,8 @@ function Home({ }: Props) {
     endBet();
   }
   function handleUpBet() {
-    upBet();
+    alert("Up bet");
+    // upBet();
   }
 
   return (
@@ -98,7 +99,7 @@ function Home({ }: Props) {
                         />
                         <button
                           // onClick={handleUpBet}
-                          onClick={alert("Up bet")}
+                          onClick={handleUpBet()}
                           className='btn'
                           disabled={info.status != "1"}
                         >
