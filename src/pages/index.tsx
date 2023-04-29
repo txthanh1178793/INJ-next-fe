@@ -50,10 +50,10 @@ function Home({ }: Props) {
     claimReward(inpuId);
   }
   function handleQueryBetInfo() {
-    queryBetInfo(inpuId as );
+    queryBetInfo(inpuId as string);
   }
   function handleQueryReward() {
-    queryReward(inputAddress, inpuId);
+    queryReward(inputAddress as string, inpuId as string);
   }
   function handleChange(event: any) {
     let { value, min, max } = event.target;
@@ -161,7 +161,7 @@ function Home({ }: Props) {
                       <div>
                         <input
                           type='text'
-                          value={inpuId}
+                          value={inputAddress}
                           onChange={(e) => setInputAddress(e.target.value)}
                           className='border rounded-lg p-2 input'
                         />
