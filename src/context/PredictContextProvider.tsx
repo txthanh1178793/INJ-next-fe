@@ -134,7 +134,7 @@ const PredictContextProvider = (props: Props) => {
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
-                toBase64({ beuser_reward: { addr: address, bet_id: id } })
+                toBase64({ user_reward: { addr: address, bet_id: id } })
             ) as { data: string };
 
             const info = fromBase64(response.data);
