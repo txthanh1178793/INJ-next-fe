@@ -124,7 +124,7 @@ const PredictContextProvider = (props: Props) => {
             ) as { data: string };
 
             const info = fromBase64(response.data);
-            alert(info);
+            console.log(info);
         } catch (e) {
             alert((e as any).message);
         }
