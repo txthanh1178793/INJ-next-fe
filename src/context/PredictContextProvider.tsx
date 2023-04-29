@@ -242,7 +242,7 @@ const PredictContextProvider = (props: Props) => {
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
-                    up_bet: {},
+                    down_bet: {},
                 },
             });
 
@@ -266,7 +266,7 @@ const PredictContextProvider = (props: Props) => {
                 contractAddress: PREDICT_CONTRACT_ADDRESS,
                 sender: injectiveAddress,
                 msg: {
-                    claim: { bet_id: value },
+                    claim_reward: { bet_id: value },
                 },
             });
 
