@@ -154,7 +154,7 @@ body {
   border-radius: 25px;
   width: 660px;
   height: 340px;
-  position: relative;
+  position: absolute;
   margin: 0 auto;
 }
 
