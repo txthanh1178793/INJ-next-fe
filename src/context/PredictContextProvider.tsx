@@ -122,7 +122,7 @@ const PredictContextProvider = (props: Props) => {
                 upPosition: info.upPosition as string,
                 downPosition: info.downPosition as string,
                 binancePrice: binancePrice.price,
-                timestamp: queryTimeStamp(),
+                timeStamp: queryTimeStamp(),
             });
         } catch (e) {
             alert((e as any).message);
