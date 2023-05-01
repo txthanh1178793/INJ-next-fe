@@ -96,6 +96,9 @@ const CurrentBet = (props: Props) => {
                     <button onClick={handleDownBet} disabled={info.status != "1"}></button>
                 </div>
             </div>
+            <div className="--container-inner">
+
+            </div>
 
         </div>
     );

@@ -4,6 +4,7 @@
 
 body {
   @apply bg-gray-300;
+  display: flex;
 }
 
 .btn {
@@ -153,7 +154,7 @@ body {
   width: 50%;
   height: 50%;
   margin: 0 auto;
-  display: flex;
+  flex: 1
 }
 
 .--container-inner {
@@ -168,7 +169,7 @@ body {
   justify-content: center;
   column-gap: 20px;
   margin: 0 auto;
-  flex: 1
+
 }
 
 .--center-vertical {
