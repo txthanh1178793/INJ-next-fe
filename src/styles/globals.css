@@ -169,7 +169,7 @@ body {
   display: flex;
   justify-content: center;
   column-gap: 20px;
-
+  margin: 0 auto;
 }
 
 .--center-vertical {
