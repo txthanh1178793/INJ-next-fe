@@ -18,7 +18,7 @@ function Home({ }: Props) {
     startPrice: '0',
     upPosition: '0',
     downPosition: '0',
-  });;
+  });
 
   const { data,
     queryBetInfo,
