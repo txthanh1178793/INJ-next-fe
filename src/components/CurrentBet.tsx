@@ -18,7 +18,8 @@ const CurrentBet = (props: Props) => {
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
-        binancePrice: '0'
+        binancePrice: '0',
+        timeStamp: '0'
     });
     const { data,
         queryBetInfo,

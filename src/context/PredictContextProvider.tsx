@@ -26,6 +26,7 @@ type StoreState = {
         upPosition: string;
         downPosition: string;
         binancePrice: string;
+        timeStamp: string
 
     },
     queryBetInfo: (value: string) => void,
@@ -49,7 +50,8 @@ const PredictContext = createContext<StoreState>({
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
-        binancePrice: '0'
+        binancePrice: '0',
+        timeStamp: '0'
     },
     queryBetInfo: (value) => { },
     queryReward: (address, id) => { },
@@ -78,7 +80,8 @@ const PredictContextProvider = (props: Props) => {
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
-        binancePrice: '0'
+        binancePrice: '0',
+        timeStamp: '0'
     });
     const { injectiveAddress } = useWalletStore();
 
@@ -119,9 +122,24 @@ const PredictContextProvider = (props: Props) => {
                 upPosition: info.upPosition as string,
                 downPosition: info.downPosition as string,
                 binancePrice: binancePrice.price,
+                timestamp: queryTimeStamp(),
             });
         } catch (e) {
             alert((e as any).message);
+        }
+    }
+
+    async function queryTimeStamp() {
+        try {
+            const response = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ time_stamp_info: {} })
+            ) as { data: string };
+
+            const info = fromBase64(response.data);
+            return info;
+        } catch (e) {
+            return '0';
         }
     }
 
