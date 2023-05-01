@@ -78,7 +78,7 @@ const CurrentBet = (props: Props) => {
         <div className="--container-wrapper" >
             <div className="--container-inner">
                 <p className="order">
-                    #{info.id} {parseInt(info.endTime) == 0 ? "Pending" : (parseInt(info.endTime) < parseInt(info.timeStamp) ? "Watting for Result" : ("Betting End in " + (parseInt(info.endTime) - parseInt(info.timeStamp)).toString()))}s
+                    #{info.id} {parseInt(info.endTime) == 0 ? "Pending" : (parseInt(info.endTime) < parseInt(info.timeStamp) ? "Watting for Result" : ("Betting End in " + (parseInt(info.endTime) - parseInt(info.timeStamp)).toString() + ' s'))}
                 </p>
                 <div className="line"></div>
                 <div className="price-tag">
@@ -95,11 +95,11 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Up Postion</td>
-                            <td>{(parseFloat((BigInt(info.upPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} $INJ</td>
+                            <td>{(parseFloat((BigInt(info.upPosition) / BigInt('10000000000000')).toString()) / 100000).toString()} $INJ</td>
                         </tr>
                         <tr>
                             <td className="prize">Down Postion</td>
-                            <td>{(parseFloat((BigInt(info.downPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} $INJ</td>
+                            <td>{(parseFloat((BigInt(info.downPosition) / BigInt('10000000000000')).toString()) / 100000).toString()} $INJ</td>
                         </tr>
                     </table>
                 </div>
