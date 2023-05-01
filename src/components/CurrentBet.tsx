@@ -6,6 +6,7 @@ import { useQuery } from 'react-query'
 type Props = {};
 const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
+    const [status, setStatus] = useState("Pending");
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
     const [info, setInfo] = useState({
@@ -77,7 +78,9 @@ const CurrentBet = (props: Props) => {
     return (
         <div className="--container-wrapper" >
             <div className="--container-inner">
-                <p className="order">#{info.id}</p>
+                <p className="order">
+                    #{info.id} {parseInt(info.endTime) == 0 ? "Pending" : (parseInt(info.endTime) < parseInt(info.timeStamp) ? "Watting for Result" : ("Betting End in " + (parseInt(info.endTime) - parseInt(info.timeStamp)).toString()))}
+                </p>
                 <div className="line"></div>
                 <div className="price-tag">
                     <p>INJ Price</p>
