@@ -102,9 +102,10 @@ const CurrentBet = (props: Props) => {
                 </div>
                 <input type="number" className="input" value={inputValue} onChange={(e) => handleChange(e)} />
                 <div className="--button-container ---a">
+                    <button onClick={handleUpBet} disabled={info.status != "1"}></button>
                     <p className="--button-text">UP</p>
                     <object className="--center-vertical" data="up.svg" width="50" height="50"> </object>
-                    <button onClick={handleUpBet} disabled={info.status != "1"}></button>
+
                 </div>
                 <div className="--button-container ---b">
                     <object className="--center-vertical" data="down.svg" width="40" height="40"> </object>
