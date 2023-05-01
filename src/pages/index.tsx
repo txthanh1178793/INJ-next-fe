@@ -90,15 +90,6 @@ function Home({ }: Props) {
             </div>
           </div>
 
-          <div className="sc-3a5c8d1f-1 sc-32d5f017-0 qopKT chfQFH">
-            {/* <button className="sc-56a7a3a9-0 cyLbdv" >
-              <div>Connect Wallet</div>
-            </button> */}
-            <ConnectWallet />
-          </div>
-        </nav>
-
-        <div className="sc-3a5c8d1f-1 sc-ff5a39ab-4 iuuTdc ehOcez bPOyEc">
           <div className="sc-667a20da-4 eOKfsA">
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
@@ -197,6 +188,7 @@ function Home({ }: Props) {
             </div>
           </div>
         </div>
+        <CurrentBet></CurrentBet>
       </body >
     </div>
   );
