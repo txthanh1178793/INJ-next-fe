@@ -142,8 +142,12 @@ body {
   height: 100%;
 }
 
+.center {
+  margin: 0 auto;
+}
 
-/* Current Bet */
+
+/******************************************* Current Bet ************************************/
 .--container-wrapper {
   background: rgb(156, 181, 181);
   border-radius: 25px;

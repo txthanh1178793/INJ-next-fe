@@ -28,15 +28,12 @@ function Home({ }: Props) {
           </div>
 
           <div className="sc-3a5c8d1f-1 sc-32d5f017-0 qopKT chfQFH">
-            {/* <button className="sc-56a7a3a9-0 cyLbdv" >
-              <div>Connect Wallet</div>
-            </button> */}
             <ConnectWallet />
           </div>
 
 
         </nav>
-        <CurrentBet></CurrentBet>
+        <div className="center"><CurrentBet></CurrentBet></div>
       </body >
     </div>
   );
