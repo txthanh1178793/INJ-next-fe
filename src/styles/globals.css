@@ -10,6 +10,7 @@ body {
   @apply bg-blue-500 text-white px-6 py-2 rounded-lg text-sm transition-all duration-200;
 }
 
+
 ._1nzuaz72 {
   display: block;
 }
@@ -146,14 +147,15 @@ body {
   margin: 0 auto;
 }
 
+
 /******************************************* Current Bet ************************************/
 .--container-wrapper {
   background: rgb(156, 181, 181);
   border-radius: 25px;
   width: 50%;
-  height: 50%;
+  height: 50%px;
+  position: relative;
   margin: 0 auto;
-
 }
 
 .--container-inner {
