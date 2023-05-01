@@ -63,10 +63,6 @@ const PredictContext = createContext<StoreState>({
 
 export const usePredictStore = () => useContext(PredictContext);
 
-
-
-
-
 type Props = {
     children?: React.ReactNode;
 };
@@ -87,7 +83,7 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        const interval = setInterval(() => fetchCurrentInfo(), 3000);
+        const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
     }, []);
 
