@@ -152,8 +152,8 @@ body {
 .--container-wrapper {
   background: rgb(156, 181, 181);
   border-radius: 25px;
-  width: 660px;
-  height: 340px;
+  width: 50%;
+  height: 40%;
   position: absolute;
   margin: 0 auto;
 }
