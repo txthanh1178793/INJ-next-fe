@@ -1,4 +1,4 @@
-import { useCounterStore } from "@/context/PredictContextProvider";
+import { usePredictStore } from "@/context/PredictContextProvider";
 import ConnectWallet from "@/components/ConnectWallet";
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
@@ -28,7 +28,7 @@ function Home({ }: Props) {
     upBet,
     downBet,
     claimReward,
-  } = useCounterStore();
+  } = usePredictStore();
   // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
   useEffect(() => {
     setInfo(data);

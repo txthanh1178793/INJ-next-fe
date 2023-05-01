@@ -62,7 +62,7 @@ const PredictContext = createContext<StoreState>({
     claimReward: (value) => { },
 });
 
-export const useCounterStore = () => useContext(PredictContext);
+export const usePredictStore = () => useContext(PredictContext);
 
 
 
