@@ -1,5 +1,5 @@
 import { usePredictStore } from "@/context/PredictContextProvider";
-import CurrentBet from "@/context/CurrentBet";
+import CurrentBet from "@/components/CurrentBet";
 import ConnectWallet from "@/components/ConnectWallet";
 import React, { useEffect, useState } from "react";
 import Link from 'next/link';
