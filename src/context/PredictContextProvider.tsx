@@ -102,6 +102,7 @@ const PredictContextProvider = (props: Props) => {
     };
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
+        let timeStamp = await queryTimeStamp();
         let addr = default_addr;
         if (injectiveAddress) addr = injectiveAddress;
         try {
@@ -122,7 +123,7 @@ const PredictContextProvider = (props: Props) => {
                 upPosition: info.upPosition as string,
                 downPosition: info.downPosition as string,
                 binancePrice: binancePrice.price,
-                timeStamp: queryTimeStamp(),
+                timeStamp: timeStamp,
             });
         } catch (e) {
             alert((e as any).message);
