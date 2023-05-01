@@ -87,7 +87,7 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        const interval = setInterval(() => fetchCurrentInfo(), 30000);
+        const interval = setInterval(() => fetchCurrentInfo(), 3000);
         return () => clearInterval(interval);
     }, []);
 

@@ -72,9 +72,9 @@ const CurrentBet = (props: Props) => {
         }
         setInputValue(value);
     };
-
+    // onMouseOver={handleQueryCurrentInfo} 
     return (
-        <div className="--container-wrapper" onMouseOver={handleQueryCurrentInfo} >
+        <div className="--container-wrapper" >
             <div className="--container-inner">
                 <p className="order">#{info.id}</p>
                 <div className="line"></div>
