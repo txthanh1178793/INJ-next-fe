@@ -84,7 +84,7 @@ const CurrentBet = (props: Props) => {
                         </tr>
                     </table>
                 </div>
-                <input type="number" className="input" />
+                <input type="number" className="input" value={inputValue} onChange={(e) => handleChange(e)} />
                 <div className="--button-container ---a">
                     <p className="--button-text">UP</p>
                     <object className="--center-vertical" data="up.svg" width="50" height="50"> </object>
