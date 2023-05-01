@@ -33,7 +33,7 @@ function Home({ }: Props) {
 
 
         </nav>
-        <div className="center"><CurrentBet></CurrentBet></div>
+        <CurrentBet></CurrentBet>
       </body >
     </div>
   );
