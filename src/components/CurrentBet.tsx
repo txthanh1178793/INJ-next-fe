@@ -88,11 +88,11 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Up Postion</td>
-                            <td>${(parseFloat(BigInt(info.upPosition as string) / BigInt('100000000000000')) / 10000).toString()} INJ</td>
+                            <td>${(parseInt(BigInt(info.upPosition as string) / BigInt('100000000000000')) / 10000).toString()} INJ</td>
                         </tr>
                         <tr>
                             <td className="prize">Down Postion</td>
-                            <td>${(parseFloat(BigInt(info.downPosition as string) / BigInt('100000000000000')) / 10000).toString()} INJ</td>
+                            <td>${(parseInt(BigInt(info.downPosition as string) / BigInt('100000000000000')) / 10000).toString()} INJ</td>
                         </tr>
                     </table>
                 </div>
