@@ -46,9 +46,12 @@ const CurrentBet = (props: Props) => {
     }
     function handleUpBet() {
         upBet(inputValue);
+        setInputValue(0);
     }
     function handleDownBet() {
         downBet(inputValue);
+        setInputValue(0);
+        console.log(info.downPosition);
     }
     function handleClaimReward() {
         claimReward(inpuId);
