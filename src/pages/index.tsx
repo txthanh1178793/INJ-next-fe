@@ -34,9 +34,9 @@ function Home({ }: Props) {
             <ConnectWallet />
           </div>
 
-          <CurrentBet></CurrentBet>
-        </nav>
 
+        </nav>
+        <CurrentBet></CurrentBet>
       </body >
     </div>
   );
