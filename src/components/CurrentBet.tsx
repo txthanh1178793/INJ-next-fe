@@ -89,7 +89,7 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Total Prize</td>
-                            <td>{(BigInt(info.totalUp) + BigInt(info.totalDown)).toString()} $INJ</td>
+                            <td>{((BigInt(info.totalUp) + BigInt(info.totalDown)) / BigInt("1000000000000000000")).toString()} $INJ</td>
                         </tr>
                         <tr>
                             <td className="prize">Up Postion</td>
