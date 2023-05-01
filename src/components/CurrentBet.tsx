@@ -28,6 +28,7 @@ const CurrentBet = (props: Props) => {
         upBet,
         downBet,
         claimReward,
+        fetchCurrentInfo
     } = usePredictStore();
 
     // https://data.binance.com/api/v3/ticker/price?symbol=INJUSDT
@@ -54,6 +55,9 @@ const CurrentBet = (props: Props) => {
     function handleQueryBetInfo() {
         queryBetInfo(inpuId as string);
     }
+    function handleQueryCurrentInfo() {
+        fetchCurrentInfo();
+    }
     function handleQueryReward() {
         queryReward(inputAddress as string, inpuId as string);
     }
@@ -70,7 +74,7 @@ const CurrentBet = (props: Props) => {
     };
 
     return (
-        <div className="--container-wrapper">
+        <div className="--container-wrapper" onMouseOver={handleQueryCurrentInfo} >
             <div className="--container-inner">
                 <p className="order">#{info.id}</p>
                 <div className="line"></div>
@@ -88,11 +92,11 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Up Postion</td>
-                            <td>${(parseInt((BigInt(info.upPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} INJ</td>
+                            <td>{(parseInt((BigInt(info.upPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} $INJ</td>
                         </tr>
                         <tr>
                             <td className="prize">Down Postion</td>
-                            <td>${(parseInt((BigInt(info.downPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} INJ</td>
+                            <td>{(parseInt((BigInt(info.downPosition) / BigInt('100000000000000')).toString()) / 10000).toString()} $INJ</td>
                         </tr>
                     </table>
                 </div>
@@ -108,7 +112,7 @@ const CurrentBet = (props: Props) => {
                     <button onClick={handleDownBet} disabled={info.status != "1"}></button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

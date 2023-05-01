@@ -35,6 +35,7 @@ type StoreState = {
     upBet: (value: string) => void,
     downBet: (value: string) => void,
     claimReward: (value: string) => void,
+    fetchCurrentInfo: () => void
 };
 
 const PredictContext = createContext<StoreState>({
@@ -57,6 +58,7 @@ const PredictContext = createContext<StoreState>({
     upBet: (value) => { },
     downBet: (value) => { },
     claimReward: (value) => { },
+    fetchCurrentInfo: () => { }
 });
 
 export const usePredictStore = () => useContext(PredictContext);
@@ -302,6 +304,7 @@ const PredictContextProvider = (props: Props) => {
                 upBet,
                 downBet,
                 claimReward,
+                fetchCurrentInfo,
             }}
         >
             {props.children}
