@@ -87,7 +87,7 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        fetchCurrentInfo();
+        const interval = setInterval(fetchCurrentInfo(), 30000);
     }, []);
 
     const fetchFromBinance = async () => {
