@@ -6,7 +6,6 @@ import { useQuery } from 'react-query'
 type Props = {};
 const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
-    const [status, setStatus] = useState("Pending");
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
     const [info, setInfo] = useState({
@@ -79,7 +78,7 @@ const CurrentBet = (props: Props) => {
         <div className="--container-wrapper" >
             <div className="--container-inner">
                 <p className="order">
-                    #{info.id} {parseInt(info.endTime) == 0 ? "Pending" : (parseInt(info.endTime) < parseInt(info.timeStamp) ? "Watting for Result" : ("Betting End in " + (parseInt(info.endTime) - parseInt(info.timeStamp)).toString()))}
+                    #{info.id} {parseInt(info.endTime) == 0 ? "Pending" : (parseInt(info.endTime) < parseInt(info.timeStamp) ? "Watting for Result" : ("Betting End in " + (parseInt(info.endTime) - parseInt(info.timeStamp)).toString()))}s
                 </p>
                 <div className="line"></div>
                 <div className="price-tag">
@@ -107,14 +106,14 @@ const CurrentBet = (props: Props) => {
                 <input type="number" className="input" value={inputValue} onChange={(e) => handleChange(e)} />
                 <div className="--button-container ---a">
                     <button onClick={handleUpBet} disabled={info.status != "1"}></button>
-                    <p className="--button-text">UP</p>
+                    {/* <p className="--button-text">UP</p> */}
                     <object className="--center-vertical" data="up.svg" width="50" height="50"> </object>
 
                 </div>
                 <div className="--button-container ---b">
-                    <object className="--center-vertical" data="down.svg" width="40" height="40"> </object>
-                    <p className="--button-text">DOWN</p>
                     <button onClick={handleDownBet} disabled={info.status != "1"}></button>
+                    {/* <object className="--center-vertical" data="down.svg" width="40" height="40"> </object> */}
+                    {/* <p className="--button-text">DOWN</p> */}
                 </div>
             </div>
         </div >
