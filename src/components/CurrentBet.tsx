@@ -1,5 +1,6 @@
 import { usePredictStore } from "@/context/PredictContextProvider";
 import React, { useEffect, useState } from "react";
+import { useQuery } from 'react-query'
 
 
 type Props = {};
@@ -17,6 +18,7 @@ const CurrentBet = (props: Props) => {
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
+        binancePrice: '0'
     });
     const { data,
         queryBetInfo,
@@ -27,6 +29,8 @@ const CurrentBet = (props: Props) => {
         downBet,
         claimReward,
     } = usePredictStore();
+
+    // https://data.binance.com/api/v3/ticker/price?symbol=INJUSDT
 
     useEffect(() => {
         setInfo(data);
@@ -72,7 +76,7 @@ const CurrentBet = (props: Props) => {
                 <div className="line"></div>
                 <div className="price-tag">
                     <p>INJ Price</p>
-                    <p className="price">$7.863</p>
+                    <p className={parseFloat(info.binancePrice) >= parseFloat(info.startPrice) ? price - up : price - down} >${info.binancePrice}</p>
                     <table className="info">
                         <tr>
                             <th className="price-start">Start Price</th>
@@ -80,7 +84,7 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Total Prize</td>
-                            <td>${info.totalUp + info.totalDown} INJ</td>
+                            <td>${BigInt(info.totalUp) + BigInt(info.totalDown)} INJ</td>
                         </tr>
                     </table>
                 </div>

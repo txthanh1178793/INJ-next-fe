@@ -259,10 +259,15 @@ body {
   font-size: 12px;
 }
 
-.price {
+.price-up {
+  font-size: 25px;
+  color: rgb(9, 149, 9);
+}
+
+.price-down {
   font-size: 25px;
   color: red;
-  color: rgb(9, 149, 9);
+
 }
 
 table,

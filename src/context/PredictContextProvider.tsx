@@ -14,11 +14,6 @@ import { useWalletStore } from "./WalletContextProvider";
 
 const default_addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
 
-enum Status {
-    Idle = "idle",
-    Loading = "loading",
-}
-
 type StoreState = {
     data: {
         id: string;
@@ -30,6 +25,7 @@ type StoreState = {
         startPrice: string;
         upPosition: string;
         downPosition: string;
+        binancePrice: string;
 
     },
     queryBetInfo: (value: string) => void,
@@ -52,6 +48,7 @@ const PredictContext = createContext<StoreState>({
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
+        binancePrice: '0'
     },
     queryBetInfo: (value) => { },
     queryReward: (address, id) => { },
@@ -83,6 +80,7 @@ const PredictContextProvider = (props: Props) => {
         startPrice: '0',
         upPosition: '0',
         downPosition: '0',
+        binancePrice: '0'
     });
     const { injectiveAddress } = useWalletStore();
 
@@ -90,7 +88,18 @@ const PredictContextProvider = (props: Props) => {
         fetchCurrentInfo();
     }, []);
 
+    const fetchFromBinance = async () => {
+        try {
+            const response = await fetch('https://data.binance.com/api/v3/ticker/price?symbol=INJUSDT');
+            const data = response.json();
+            return data;
+        }
+        catch {
+            return { price: '0' };
+        }
+    };
     async function fetchCurrentInfo() {
+        let binancePrice = await fetchFromBinance();
         let addr = default_addr;
         if (injectiveAddress) addr = injectiveAddress;
         try {
@@ -110,6 +119,7 @@ const PredictContextProvider = (props: Props) => {
                 startPrice: info.startPrice as string,
                 upPosition: info.upPosition as string,
                 downPosition: info.downPosition as string,
+                binancePrice: binancePrice.price,
             });
         } catch (e) {
             alert((e as any).message);
