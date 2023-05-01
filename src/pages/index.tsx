@@ -6,69 +6,6 @@ import Link from 'next/link';
 type Props = {};
 
 function Home({ }: Props) {
-  const [inputValue, setInputValue] = useState("0");
-  const [inputAddress, setInputAddress] = useState("0");
-  const [inpuId, setInpuId] = useState("0");
-  const [info, setInfo] = useState({
-    id: '0',
-    status: '0',
-    totalUp: '0',
-    totalDown: '0',
-    startTime: '0',
-    endTime: '0',
-    startPrice: '0',
-    upPosition: '0',
-    downPosition: '0',
-  });;
-
-  const { data,
-    queryBetInfo,
-    queryReward,
-    startBet,
-    endBet,
-    upBet,
-    downBet,
-    claimReward,
-  } = usePredictStore();
-  // const { count, isLoading, incrementCount, setContractCounter } = useCounterStore();
-  useEffect(() => {
-    setInfo(data);
-  }, [data]);
-
-  function handleStartBet() {
-    startBet();
-  }
-  function handleEndBet() {
-    endBet();
-  }
-  function handleUpBet() {
-    upBet(inputValue);
-  }
-  function handleDownBet() {
-    downBet(inputValue);
-  }
-  function handleClaimReward() {
-    claimReward(inpuId);
-  }
-  function handleQueryBetInfo() {
-    queryBetInfo(inpuId as string);
-  }
-  function handleQueryReward() {
-    queryReward(inputAddress as string, inpuId as string);
-  }
-  function handleChange(event: any) {
-    let { value, min, max } = event.target;
-
-    if (Number(value) > 1000) {
-      value = 1000;
-    }
-    if (Number(value) < 0.001) {
-      value = 0.001;
-    }
-    setInputValue(value);
-  };
-
-
   return (
     <div>
       <body>
@@ -90,6 +27,17 @@ function Home({ }: Props) {
             </div>
           </div>
 
+          <div className="sc-3a5c8d1f-1 sc-32d5f017-0 qopKT chfQFH">
+            {/* <button className="sc-56a7a3a9-0 cyLbdv" >
+              <div>Connect Wallet</div>
+            </button> */}
+            <ConnectWallet />
+          </div>
+
+          <CurrentBet></CurrentBet>
+        </nav>
+
+        <div className="sc-3a5c8d1f-1 sc-ff5a39ab-4 iuuTdc ehOcez bPOyEc">
           <div className="sc-667a20da-4 eOKfsA">
             <div className="sc-667a20da-1 iWIALT">
               <div className="sc-667a20da-5 dGJnQD">
@@ -188,7 +136,6 @@ function Home({ }: Props) {
             </div>
           </div>
         </div>
-        <CurrentBet></CurrentBet>
       </body >
     </div>
   );
