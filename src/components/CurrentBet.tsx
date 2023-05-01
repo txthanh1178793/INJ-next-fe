@@ -7,10 +7,6 @@ const CurrentBet = (props: Props) => {
         <div className="--container-wrapper">
             <div className="--container-inner">
                 <p className="order">#1420</p>
-                <div>
-                    <h2 onload="startTime()"></h2>
-                    <div id="txt"></div>
-                </div>
                 <div className="line"></div>
                 <div className="price-tag">
                     <p>INJ Price</p>
