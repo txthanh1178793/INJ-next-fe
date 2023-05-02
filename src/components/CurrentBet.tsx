@@ -127,7 +127,7 @@ const CurrentBet = (props: Props) => {
 
             <div className="--container-wrapper -bet--info">
                 <div className="--step">
-                    <div className="--bet-info-id">#{info.id > 0 ? parseInt(info.id) - 1 : 0}</div>
+                    <div className="--bet-info-id">#{parseInt(info.id) > 0 ? parseInt(info.id) - 1 : 0}</div>
                     <a href="#" className="previous round">&#8249;</a>
                     <a href="#" className="next round">&#8250;</a>
                 </div>
