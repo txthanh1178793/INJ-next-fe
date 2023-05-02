@@ -349,7 +349,7 @@ const PredictContextProvider = (props: Props) => {
             value={{
                 data: info,
                 betInfo: betInfoState,
-                reward: "0",
+                reward: reward,
                 queryBetInfo,
                 queryReward,
                 startBet,
