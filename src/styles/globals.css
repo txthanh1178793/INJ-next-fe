@@ -326,9 +326,11 @@ a:hover {
 }
 
 .--change-betId-button {
+  cursor: pointer;
   display: inline-block;
   width: 100%;
   height: 100%;
+
 }
 
 .--step {
