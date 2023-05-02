@@ -102,8 +102,7 @@ const CurrentBet = (props: Props) => {
                         </tr>
                         <tr>
                             <td className="prize">Down Postion</td>
-                            {/* <td>{(parseFloat((BigInt(info.downPosition) / BigInt('10000000000000')).toString()) / 100000).toString()} $INJ</td> */}
-                            <td>{info.downPosition} $INJ</td>
+                            <td>{(parseFloat((BigInt(info.downPosition) / BigInt('10000000000000')).toString()) / 100000).toString()} $INJ</td>
                         </tr>
                     </table>
                 </div>
@@ -118,6 +117,38 @@ const CurrentBet = (props: Props) => {
                     <button onClick={handleDownBet} disabled={info.status != "1"} className="button ---b">DOWN</button>
                     <object className="--center-vertical" data="down.svg" width="40" height="40"> </object>
                     {/* <p className="--button-text">DOWN</p> */}
+                </div>
+            </div>
+
+
+            <div className="--container-wrapper -bet--info">
+                <div className="--step">
+                    <div className="--bet-info-id">#120</div>
+                    <a href="#" className="previous round">&#8249;</a>
+                    <a href="#" className="next round">&#8250;</a>
+                </div>
+                <div>
+                    <table className="info">
+                        <tr>
+                            <th className="--bet-info-data">Start Price</th>
+                            <th className="--bet-info-data">$7.862</th>
+                        </tr>
+                        <tr>
+                            <td className="--bet-info-data">End Price</td>
+                            <td className="--bet-info-data">$7.862</td>
+                        </tr>
+                        <tr>
+                            <td className="--bet-info-data">Total Prize</td>
+                            <td className="--bet-info-data">1100.2 INJ</td>
+                        </tr>
+                    </table>
+                </div>
+                <div className="--margin">
+
+                </div>
+                <div className=".--bet-info-button">
+                    <button className="--check-and-claim">bac</button>
+                    <button className="--check-and-claim"></button>
                 </div>
             </div>
         </div >
