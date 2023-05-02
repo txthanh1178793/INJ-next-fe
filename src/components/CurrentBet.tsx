@@ -44,9 +44,10 @@ const CurrentBet = (props: Props) => {
 
     useEffect(() => {
         setInfo(data);
-        console.log(data.id);
-        setBetInfo(betInfo);
-    }, [data, betInfo]);
+        if (parseInt(info.id) > 0) {
+            queryBetInfo((parseInt(info.id) - 1).toString());
+        }
+    }, [data]);
 
     function handleStartBet() {
         startBet();
