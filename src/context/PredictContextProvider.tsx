@@ -137,8 +137,8 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ current_info: { addr: addr } })
             ) as { data: string };
             const data = await fromBase64(response.data);
-            console.log((data.id).toString());
-            return (data.id).toString();
+            // console.log((data.id).toString());
+            return parseInt((data.id).toString()).toString();
         } catch (e) {
             return "0";
         }
