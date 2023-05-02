@@ -191,7 +191,7 @@ const PredictContextProvider = (props: Props) => {
     async function queryReward(id: string) {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
-            return;
+            return "0";
         }
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
