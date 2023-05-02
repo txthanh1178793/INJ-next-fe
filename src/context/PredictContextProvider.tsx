@@ -137,10 +137,8 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ current_info: { addr: addr } })
             ) as { data: string };
 
-            const data = fromBase64(response.data);
-            const up = data.upPosition as string;
-            const down = data.downPosition as string;
-            setInfo({
+            const data = await fromBase64(response.data);
+            await setInfo({
                 id: data.id as string,
                 status: data.status as string,
                 totalUp: data.totalUp as string,
@@ -148,8 +146,8 @@ const PredictContextProvider = (props: Props) => {
                 startTime: data.startTime as string,
                 endTime: data.endTime as string,
                 startPrice: data.startPrice as string,
-                upPosition: up == "0" ? info.upPosition : data.upPosition as string,
-                downPosition: down == "0" ? info.downPosition : data.downPosition as string,
+                upPosition: data.upPosition as string,
+                downPosition: data.downPosition as string,
                 binancePrice: binancePrice.price,
                 timeStamp: timeStamp as string,
             });
