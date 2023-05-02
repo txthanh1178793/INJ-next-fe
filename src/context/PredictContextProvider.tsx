@@ -29,6 +29,14 @@ type StoreState = {
         timeStamp: string
 
     },
+    bet_info: {
+        upBet: string,
+        downBet: string,
+        endPrice: string,
+        startPrice: string,
+        totalPrize: string,
+
+    },
     queryBetInfo: (value: string) => void,
     queryReward: (address: string, id: string) => void,
     startBet: () => void,
