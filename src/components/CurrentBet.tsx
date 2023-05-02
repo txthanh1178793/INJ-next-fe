@@ -70,14 +70,14 @@ const CurrentBet = (props: Props) => {
         setReward("0");
     }
     function handleQueryBetInfoNext() {
+        queryBetInfo((parseInt(betID, 10) + 1).toString());
+        queryReward((parseInt(betID, 10) + 1).toString());
         setBetID((parseInt(betID, 10) + 1).toString());
-        queryBetInfo(betID);
-        queryReward(betID);
     }
     function handleQueryBetInfoPrevious() {
+        queryBetInfo((parseInt(betID, 10) - 1).toString());
+        queryReward((parseInt(betID, 10) - 1).toString());
         setBetID((parseInt(betID, 10) - 1).toString());
-        queryBetInfo(betID);
-        queryReward(betID);
     }
     function handleQueryCurrentInfo() {
         fetchCurrentInfo();
