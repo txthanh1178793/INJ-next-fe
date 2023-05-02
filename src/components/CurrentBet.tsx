@@ -150,8 +150,8 @@ const CurrentBet = (props: Props) => {
 
                 </div>
                 <div className=".--bet-info-button">
-                    <button className="--check-and-claim">bac</button>
-                    <button className="--check-and-claim"></button>
+                    <button className="--check-and-claim">CHECK</button>
+                    <button className="--check-and-claim --claim"></button>
                 </div>
             </div>
         </div>

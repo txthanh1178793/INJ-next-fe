@@ -292,17 +292,10 @@ td {
 }
 
 /******************************************* Bet Info ****************************/
-.--container-wrapper3 {}
 
 .-bet--info {
-  background: rgb(156, 181, 181);
-  border-radius: 25px;
-  width: 50%;
-  height: 340px;
-  /* margin-top: 20px; */
+  margin-top: 20px;
   width: 30%;
-  position: relative;
-  margin: 0 auto;
 }
 
 a {
@@ -364,6 +357,12 @@ a:hover {
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
+  background-color: #1fc7d4;
+  background-image: linear-gradient(235deg, rgb(99, 212, 131) 0%, rgba(79, 168, 158, 0.008) 80%);
+}
+
+.--claim {
+  display: none;
 }
 
 .--margin {
