@@ -53,7 +53,7 @@ function Home({ }: Props) {
     queryBetInfo(inpuId as string);
   }
   function handleQueryReward() {
-    queryReward(inputAddress as string, inpuId as string);
+    queryReward(inpuId as string);
   }
   function handleChange(event: any) {
     let { value, min, max } = event.target;
