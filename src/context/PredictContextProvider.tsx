@@ -112,7 +112,7 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        queryBetInfo("0");
+        queryBetInfo((getid()).toString());
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
     }, [injectiveAddress]);
@@ -127,6 +127,22 @@ const PredictContextProvider = (props: Props) => {
             return { price: '0' };
         }
     };
+
+    async function getid() {
+        const addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
+        try {
+            const response = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ current_info: { addr: addr } })
+            ) as { data: string };
+            const data = await fromBase64(response.data);
+            return data.id as string;
+        } catch (e) {
+            return "0";
+        }
+    }
+
+
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
         let timeStamp = await queryTimeStamp();
@@ -152,7 +168,7 @@ const PredictContextProvider = (props: Props) => {
                 binancePrice: binancePrice.price,
                 timeStamp: timeStamp as string,
             });
-            console.log(addr);
+            // console.log(addr);
         } catch (e) {
             alert((e as any).message);
         }
