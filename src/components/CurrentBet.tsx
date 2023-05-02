@@ -51,7 +51,7 @@ const CurrentBet = (props: Props) => {
 
     useEffect(() => {
         setBetInfo(betInfo);
-    }, []);
+    }, [betInfo]);
 
     function handleStartBet() {
         startBet();
