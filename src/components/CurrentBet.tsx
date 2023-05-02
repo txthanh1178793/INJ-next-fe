@@ -21,6 +21,13 @@ const CurrentBet = (props: Props) => {
         binancePrice: '0',
         timeStamp: '0'
     });
+    const [betInfoState, setBetInfo] = useState({
+        upBet: "0",
+        downBet: "0",
+        endPrice: "0",
+        startPrice: "0",
+        totalPrize: "0",
+    });
     const { data,
         betInfo,
         queryBetInfo,
@@ -37,6 +44,7 @@ const CurrentBet = (props: Props) => {
 
     useEffect(() => {
         setInfo(data);
+        setBetInfo(betInfo);
     }, [data]);
 
     function handleStartBet() {
@@ -135,16 +143,16 @@ const CurrentBet = (props: Props) => {
                     <table className="info">
                         <tr>
                             <th className="--bet-info-data">Start Price</th>
-                            <th className="--bet-info-data">${betInfo.startPrice}</th>
+                            <th className="--bet-info-data">${betInfoState.startPrice}</th>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">End Price</td>
-                            <td className="--bet-info-data">${betInfo.endPrice}</td>
+                            <td className="--bet-info-data">${betInfoState.endPrice}</td>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">Total Prize</td>
                             <td className="--bet-info-data">
-                                {parseInt((BigInt(betInfo.totalPrize as string) / BigInt("10000000000000")).toString()) / 100000} $INJ
+                                {parseInt((BigInt(betInfoState.totalPrize as string) / BigInt("10000000000000")).toString()) / 100000} $INJ
                             </td>
                         </tr>
                     </table>
