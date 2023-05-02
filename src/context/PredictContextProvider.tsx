@@ -29,7 +29,7 @@ type StoreState = {
         timeStamp: string
 
     },
-    bet_info: {
+    betInfo: {
         upBet: string,
         downBet: string,
         endPrice: string,
@@ -61,7 +61,7 @@ const PredictContext = createContext<StoreState>({
         binancePrice: '0',
         timeStamp: '0'
     },
-    bet_info: {
+    betInfo: {
         upBet: "0",
         downBet: "0",
         endPrice: "0",
@@ -99,7 +99,7 @@ const PredictContextProvider = (props: Props) => {
         binancePrice: '0',
         timeStamp: '0'
     });
-    const [betInfo, setBetInfo] = useState({
+    const [betInfoState, setBetInfo] = useState({
         upBet: "0",
         downBet: "0",
         endPrice: "0",
