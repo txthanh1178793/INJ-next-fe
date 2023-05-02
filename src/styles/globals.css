@@ -292,23 +292,17 @@ td {
 }
 
 /******************************************* Bet Info ****************************/
-.--container-wrapper3 {
-
-
-
-
-
-  margin: 0 auto;
-}
+.--container-wrapper3 {}
 
 .-bet--info {
   background: rgb(156, 181, 181);
   border-radius: 25px;
   width: 50%;
   height: 340px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 30%;
   position: absolute;
+  margin: 0 auto;
 }
 
 a {
