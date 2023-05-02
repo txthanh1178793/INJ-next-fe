@@ -45,7 +45,7 @@ type StoreState = {
     upBet: (value: string) => void,
     downBet: (value: string) => void,
     claimReward: (value: string) => void,
-    fetchCurrentInfo: () => string
+    fetchCurrentInfo: () => void
 };
 
 const PredictContext = createContext<StoreState>({
@@ -72,7 +72,7 @@ const PredictContext = createContext<StoreState>({
     },
     reward: '0',
     queryBetInfo: (value) => { },
-    queryReward: (id) => { return string },
+    queryReward: (id) => { },
     startBet: () => { },
     endBet: () => { },
     upBet: (value) => { },
