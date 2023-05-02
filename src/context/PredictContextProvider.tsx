@@ -342,7 +342,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
 
-    //
     return (
         <PredictContext.Provider
             value={{
