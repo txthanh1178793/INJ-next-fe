@@ -12,7 +12,6 @@ import {
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useWalletStore } from "./WalletContextProvider";
 
-const default_addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
 
 type StoreState = {
     data: {
@@ -108,6 +107,7 @@ const PredictContextProvider = (props: Props) => {
         startPrice: "0",
         totalPrize: "0",
     });
+    const [addr, setAddr] = useState("inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny");
     const [reward, setReward] = useState("0");
     const { injectiveAddress } = useWalletStore();
 
@@ -130,8 +130,7 @@ const PredictContextProvider = (props: Props) => {
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
         let timeStamp = await queryTimeStamp();
-        let addr = default_addr;
-        if (injectiveAddress) addr = injectiveAddress;
+        if (injectiveAddress) setAddr(injectiveAddress);
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
