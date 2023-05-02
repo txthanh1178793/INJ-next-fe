@@ -346,6 +346,7 @@ const PredictContextProvider = (props: Props) => {
         <PredictContext.Provider
             value={{
                 data: info,
+                betInfo: betInfoState,
                 queryBetInfo,
                 queryReward,
                 startBet,
