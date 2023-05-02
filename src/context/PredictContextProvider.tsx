@@ -204,7 +204,7 @@ const PredictContextProvider = (props: Props) => {
             console.log(desh_data);
             setReward(desh_data);
         } catch (e) {
-
+            alert(e)
         }
     }
     async function startBet() {
