@@ -8,7 +8,7 @@ const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
-    const [betID, setBetID] = useState(0);
+    const [betID, setBetID] = useState("0");
     const [info, setInfo] = useState({
         id: '0',
         status: '0',
@@ -65,12 +65,12 @@ const CurrentBet = (props: Props) => {
         claimReward(inpuId);
     }
     function handleQueryBetInfoNext() {
-        setBetID(betID + 1);
-        queryBetInfo(betID as string);
+        setBetID((parseInt(betID, 10) + 1).toString());
+        queryBetInfo(betID);
     }
     function handleQueryBetInfoPrevious() {
-        setBetID(betID - 1);
-        queryBetInfo(betID as string);
+        setBetID((parseInt(betID, 10) - 1).toString());
+        queryBetInfo(betID);
     }
     function handleQueryCurrentInfo() {
         fetchCurrentInfo();
