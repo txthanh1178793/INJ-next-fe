@@ -111,7 +111,7 @@ const PredictContextProvider = (props: Props) => {
     useEffect(() => {
         fetchCurrentInfo();
         if (parseInt(info.id) > 0) {
-            queryBetInfo((parseInt(info.id) - 1) as string);
+            queryBetInfo((parseInt(info.id) - 1).toString());
         }
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
