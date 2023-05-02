@@ -44,7 +44,7 @@ type StoreState = {
     upBet: (value: string) => void,
     downBet: (value: string) => void,
     claimReward: (value: string) => void,
-    fetchCurrentInfo: () => void
+    fetchCurrentInfo: () => string
 };
 
 const PredictContext = createContext<StoreState>({
