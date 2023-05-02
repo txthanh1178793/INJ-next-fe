@@ -178,17 +178,17 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ bet_info: { bet_id: parseInt(value, 10) } })
             ) as { data: string };
 
-            const info = fromBase64(response.data);
+            const data = fromBase64(response.data);
             setBetInfo({
-                upBet: info.upBet as string,
-                downBet: info.downBet as string,
-                endPrice: info.endPrice as string,
-                startPrice: info.startPrice as string,
-                totalPrize: info.totalPrize as string,
+                upBet: data.upBet as string,
+                downBet: data.downBet as string,
+                endPrice: data.endPrice as string,
+                startPrice: data.startPrice as string,
+                totalPrize: data.totalPrize as string,
             });
-            // console.log(info);
+            console.log(data);
         } catch (e) {
-
+            console.log("query failed");
         }
     }
     async function queryReward(address: string, id: string) {
