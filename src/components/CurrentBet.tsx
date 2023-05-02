@@ -142,7 +142,7 @@ const CurrentBet = (props: Props) => {
                 <div className="--step">
                     <div className="--bet-info-id">#{betID}</div>
                     <a href="#" className="previous round">
-                        <button onClick={() => { betID != "0" ? handleQueryBetInfoPrevious()}}>
+                        <button onClick={() => { betID != "0" ? handleQueryBetInfoPrevious() : {} }}>
                             &#8249;
                         </button>
                     </a>
