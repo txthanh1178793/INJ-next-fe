@@ -40,13 +40,9 @@ const CurrentBet = (props: Props) => {
         fetchCurrentInfo
     } = usePredictStore();
 
-    // https://data.binance.com/api/v3/ticker/price?symbol=INJUSDT
-
     useEffect(() => {
+        queryBetInfo("0");
         setInfo(data);
-        if (parseInt(info.id) > 0) {
-            queryBetInfo((parseInt(info.id) - 1).toString());
-        }
     }, [data]);
 
     function handleStartBet() {
@@ -62,7 +58,7 @@ const CurrentBet = (props: Props) => {
     function handleDownBet() {
         downBet(inputValue);
         setInputValue("0");
-        console.log(info.downPosition);
+
     }
     function handleClaimReward() {
         claimReward(inpuId);
