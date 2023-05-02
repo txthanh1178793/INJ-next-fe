@@ -107,7 +107,7 @@ const PredictContextProvider = (props: Props) => {
         startPrice: "0",
         totalPrize: "0",
     });
-    const [addr, setAddr] = useState("inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny");
+    // const [addr, setAddr] = useState("inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny");
     const [reward, setReward] = useState("0");
     const { injectiveAddress } = useWalletStore();
 
@@ -130,7 +130,8 @@ const PredictContextProvider = (props: Props) => {
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
         let timeStamp = await queryTimeStamp();
-        if (injectiveAddress) setAddr(injectiveAddress);
+        let addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
+        if (injectiveAddress) addr = injectiveAddress;
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
