@@ -9,6 +9,7 @@ const CurrentBet = (props: Props) => {
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
     const [betID, setBetID] = useState("0");
+    const [reward, setReward] = useState("0");
     const [info, setInfo] = useState({
         id: '0',
         status: '0',
@@ -76,7 +77,7 @@ const CurrentBet = (props: Props) => {
         fetchCurrentInfo();
     }
     function handleQueryReward() {
-        queryReward(inputAddress as string, inpuId as string);
+        setReward(queryReward(betID as string));
     }
     function handleChange(event: any) {
         let { value, min, max } = event.target;
@@ -174,7 +175,7 @@ const CurrentBet = (props: Props) => {
 
                 </div>
                 <div className=".--bet-info-button">
-                    <button className="--check-and-claim">CHECK</button>
+                    <button className="--check-and-claim" onClick={handleQueryReward}>CHECK</button>
                     <button className="--check-and-claim --claim"></button>
                 </div>
             </div>
