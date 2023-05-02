@@ -1,8 +1,9 @@
 import { usePredictStore } from "@/context/PredictContextProvider";
 import React, { useEffect, useState } from "react";
 import { useQuery } from 'react-query'
-
-
+import { chainGrpcWasmApi, msgBroadcastClient } from "@/services/services";
+import { PREDICT_CONTRACT_ADDRESS } from "@/services/constants";
+import { fromBase64, toBase64 } from "@injectivelabs/sdk-ts";
 type Props = {};
 const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
@@ -41,8 +42,23 @@ const CurrentBet = (props: Props) => {
         downBet,
         claimReward,
         fetchCurrentInfo,
-        getid
+        // getid
     } = usePredictStore();
+
+    async function getid() {
+        const addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
+        try {
+            const response = await chainGrpcWasmApi.fetchSmartContractState(
+                PREDICT_CONTRACT_ADDRESS,
+                toBase64({ current_info: { addr: addr } })
+            ) as { data: string };
+            const data = await fromBase64(response.data);
+            // console.log((data.id).toString());
+            return parseInt((data.id).toString()).toString();
+        } catch (e) {
+            return "0";
+        }
+    }
 
     useEffect(() => {
         setInfo(data);
@@ -55,8 +71,7 @@ const CurrentBet = (props: Props) => {
     }, [betInfo]);
 
     useEffect(() => {
-        const id = getid();
-        setBetID(id);
+        getid();
     }, []);
 
     function handleStartBet() {

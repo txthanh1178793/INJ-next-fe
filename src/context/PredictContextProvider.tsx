@@ -45,7 +45,7 @@ type StoreState = {
     downBet: (value: string) => void,
     claimReward: (value: string) => void,
     fetchCurrentInfo: () => void,
-    getid: () => void
+    // getid: () => void
 };
 
 const PredictContext = createContext<StoreState>({
@@ -79,7 +79,7 @@ const PredictContext = createContext<StoreState>({
     downBet: (value) => { },
     claimReward: (value) => { },
     fetchCurrentInfo: () => { },
-    getid: () => { }
+    // getid: () => { }
 });
 
 export const usePredictStore = () => useContext(PredictContext);
@@ -128,21 +128,6 @@ const PredictContextProvider = (props: Props) => {
             return { price: '0' };
         }
     };
-
-    async function getid() {
-        const addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
-        try {
-            const response = await chainGrpcWasmApi.fetchSmartContractState(
-                PREDICT_CONTRACT_ADDRESS,
-                toBase64({ current_info: { addr: addr } })
-            ) as { data: string };
-            const data = await fromBase64(response.data);
-            // console.log((data.id).toString());
-            return parseInt((data.id).toString()).toString();
-        } catch (e) {
-            return "0";
-        }
-    }
 
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
@@ -375,7 +360,7 @@ const PredictContextProvider = (props: Props) => {
                 downBet,
                 claimReward,
                 fetchCurrentInfo,
-                getid,
+                // getid,
             }}
         >
             {props.children}
