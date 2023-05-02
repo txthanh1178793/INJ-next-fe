@@ -186,6 +186,7 @@ const PredictContextProvider = (props: Props) => {
                 startPrice: info.startPrice as string,
                 totalPrize: info.totalPrize as string,
             });
+            console.log(info);
         } catch (e) {
 
         }
