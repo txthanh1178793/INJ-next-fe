@@ -46,7 +46,7 @@ const CurrentBet = (props: Props) => {
     useEffect(() => {
         setInfo(data);
         setBetInfo(betInfo);
-        queryReward("0");
+        queryReward(betID);
         setReward(reward);
     }, [data]);
 
