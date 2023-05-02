@@ -369,9 +369,6 @@ a:hover {
   background-image: linear-gradient(235deg, rgb(99, 212, 131) 0%, rgba(79, 168, 158, 0.008) 80%);
 }
 
-.--claim {
-  display: none;
-}
 
 .--margin {
   height: 30px;

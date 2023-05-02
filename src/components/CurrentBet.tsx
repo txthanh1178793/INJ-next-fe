@@ -65,13 +65,16 @@ const CurrentBet = (props: Props) => {
 
     }
     function handleClaimReward() {
-        claimReward(inpuId);
+        claimReward(betID);
+        setReward("0");
     }
     function handleQueryBetInfoNext() {
+        setReward("0");
         setBetID((parseInt(betID, 10) + 1).toString());
         queryBetInfo(betID);
     }
     function handleQueryBetInfoPrevious() {
+        setReward("0");
         setBetID((parseInt(betID, 10) - 1).toString());
         queryBetInfo(betID);
     }
@@ -93,7 +96,9 @@ const CurrentBet = (props: Props) => {
         setInputValue(value);
     };
 
-
+    const Claim = () => {
+        <button className="--check-and-claim" onClick={handleClaimReward}></button>
+    }
     return (
         <div>
             <div className="--container-wrapper" >
@@ -178,7 +183,10 @@ const CurrentBet = (props: Props) => {
                 </div>
                 <div className=".--bet-info-button">
                     <button className="--check-and-claim" onClick={handleQueryReward}>CHECK</button>
-                    <button className="--check-and-claim --claim"></button>
+                    <div>
+                        {rewardState != "0" ? <Claim /> : null}
+                    </div>
+
                 </div>
             </div>
         </div >
