@@ -110,11 +110,11 @@ const CurrentBet = (props: Props) => {
                     <div className="line"></div>
                     <div className="price-tag">
                         <p>INJ Price</p>
-                        <p className={parseFloat(info.binancePrice) >= parseFloat(info.startPrice) ? "price-up" : "price-down"} >${info.binancePrice}</p>
+                        <p className={parseFloat(info.binancePrice) >= parseFloat(info.startPrice) / 1000 ? "price-up" : "price-down"} >${info.binancePrice}</p>
                         <table className="info">
                             <tr>
                                 <th className="price-start">Start Price</th>
-                                <th>${info.startPrice}</th>
+                                <th>${parseInt(info.startPrice) / 1000}</th>
                             </tr>
                             <tr>
                                 <td className="prize">Total Prize</td>
@@ -165,11 +165,11 @@ const CurrentBet = (props: Props) => {
                     <table className="info">
                         <tr>
                             <th className="--bet-info-data">Start Price</th>
-                            <th className="--bet-info-data">${betInfoState.startPrice}</th>
+                            <th className="--bet-info-data">${parseInt(betInfoState.startPrice) / 1000}</th>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">End Price</td>
-                            <td className="--bet-info-data">${betInfoState.endPrice}</td>
+                            <td className="--bet-info-data">${parseInt(betInfoState.endPrice) / 1000}</td>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">Total Prize</td>
