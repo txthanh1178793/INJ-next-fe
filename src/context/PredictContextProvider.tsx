@@ -109,6 +109,7 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
+        queryBetInfo("0");
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
     }, []);

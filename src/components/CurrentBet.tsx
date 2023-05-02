@@ -41,7 +41,6 @@ const CurrentBet = (props: Props) => {
     } = usePredictStore();
 
     useEffect(() => {
-        queryBetInfo("0");
         setInfo(data);
     }, [data]);
 
