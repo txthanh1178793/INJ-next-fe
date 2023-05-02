@@ -193,18 +193,17 @@ const PredictContextProvider = (props: Props) => {
     }
     async function queryReward(id: string) {
         if (!injectiveAddress) {
-            alert("No Wallet Connected");
+            return;
         }
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
                 PREDICT_CONTRACT_ADDRESS,
                 toBase64({ user_reward: { addr: injectiveAddress, bet_id: parseInt(id, 10) } })
             ) as { data: string };
-
             const desh_data = fromBase64(response.data).toString();
             setReward(desh_data);
         } catch (e) {
-            alert("Query Reward Failed");
+
         }
     }
     async function startBet() {

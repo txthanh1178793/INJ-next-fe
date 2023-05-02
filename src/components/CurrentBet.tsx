@@ -46,6 +46,7 @@ const CurrentBet = (props: Props) => {
     useEffect(() => {
         setInfo(data);
         setBetInfo(betInfo);
+        queryReward("0");
         setReward(reward);
     }, [data]);
 
@@ -69,14 +70,14 @@ const CurrentBet = (props: Props) => {
         setReward("0");
     }
     function handleQueryBetInfoNext() {
-        setReward("0");
         setBetID((parseInt(betID, 10) + 1).toString());
         queryBetInfo(betID);
+        queryReward(betID);
     }
     function handleQueryBetInfoPrevious() {
-        setReward("0");
         setBetID((parseInt(betID, 10) - 1).toString());
         queryBetInfo(betID);
+        queryReward(betID);
     }
     function handleQueryCurrentInfo() {
         fetchCurrentInfo();
@@ -176,13 +177,19 @@ const CurrentBet = (props: Props) => {
                                 {parseInt((BigInt(betInfoState.totalPrize as string) / BigInt("10000000000000")).toString()) / 100000} $INJ
                             </td>
                         </tr>
+                        <tr>
+                            <td className="--bet-info-data">Your Reward</td>
+                            <td className="--bet-info-data">
+                                {parseInt((BigInt(rewardState as string) / BigInt("10000000000000")).toString()) / 100000} $INJ
+                            </td>
+                        </tr>
                     </table>
                 </div>
                 <div className="--margin">
 
                 </div>
                 <div className=".--bet-info-button">
-                    <button className="--check-and-claim" onClick={handleQueryReward}>CHECK</button>
+                    {/* <button className="--check-and-claim" onClick={handleQueryReward}>CHECK</button> */}
                     <div>
                         {rewardState != "0" ? <Claim /> : null}
                     </div>
