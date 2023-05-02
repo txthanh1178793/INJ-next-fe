@@ -37,6 +37,7 @@ type StoreState = {
         totalPrize: string,
 
     },
+    reward: string,
     queryBetInfo: (value: string) => void,
     queryReward: (id: string) => void,
     startBet: () => void,
@@ -69,8 +70,9 @@ const PredictContext = createContext<StoreState>({
         totalPrize: "0",
 
     },
+    reward: '0',
     queryBetInfo: (value) => { },
-    queryReward: (id) => { },
+    queryReward: (id) => { return string },
     startBet: () => { },
     endBet: () => { },
     upBet: (value) => { },
@@ -106,6 +108,7 @@ const PredictContextProvider = (props: Props) => {
         startPrice: "0",
         totalPrize: "0",
     });
+    const [reward, setReward] = useState("0");
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
@@ -191,7 +194,6 @@ const PredictContextProvider = (props: Props) => {
     async function queryReward(id: string) {
         if (!injectiveAddress) {
             alert("No Wallet Connected");
-            return "0";
         }
         try {
             const response = await chainGrpcWasmApi.fetchSmartContractState(
@@ -199,11 +201,11 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ user_reward: { addr: injectiveAddress, bet_id: parseInt(id, 10) } })
             ) as { data: string };
 
-            const info = fromBase64(response.data);
+            setReward(response.data as string);
             console.log(info);
             return info.data;
         } catch (e) {
-            return "0";
+            alert("Query Reward Failed");
         }
     }
     async function startBet() {
@@ -348,6 +350,7 @@ const PredictContextProvider = (props: Props) => {
             value={{
                 data: info,
                 betInfo: betInfoState,
+                reward: "0",
                 queryBetInfo,
                 queryReward,
                 startBet,

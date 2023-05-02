@@ -9,7 +9,7 @@ const CurrentBet = (props: Props) => {
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
     const [betID, setBetID] = useState("0");
-    const [reward, setReward] = useState("0");
+    const [rewardState, setReward] = useState("0");
     const [info, setInfo] = useState({
         id: '0',
         status: '0',
@@ -32,6 +32,7 @@ const CurrentBet = (props: Props) => {
     });
     const { data,
         betInfo,
+        reward,
         queryBetInfo,
         queryReward,
         startBet,
@@ -45,6 +46,7 @@ const CurrentBet = (props: Props) => {
     useEffect(() => {
         setInfo(data);
         setBetInfo(betInfo);
+        setReward(reward);
     }, [data]);
 
     function handleStartBet() {
@@ -77,7 +79,7 @@ const CurrentBet = (props: Props) => {
         fetchCurrentInfo();
     }
     function handleQueryReward() {
-        setReward(queryReward(betID as string));
+        queryReward(betID as string);
     }
     function handleChange(event: any) {
         let { value, min, max } = event.target;
