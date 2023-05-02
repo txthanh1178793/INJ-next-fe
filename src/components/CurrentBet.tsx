@@ -8,6 +8,7 @@ const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
+    const [betID, setbetID] = useState("0");
     const [info, setInfo] = useState({
         id: '0',
         status: '0',
@@ -42,6 +43,7 @@ const CurrentBet = (props: Props) => {
 
     useEffect(() => {
         setInfo(data);
+        setBetInfo(betInfo);
     }, [data]);
 
     function handleStartBet() {
@@ -132,7 +134,7 @@ const CurrentBet = (props: Props) => {
 
             <div className="--container-wrapper -bet--info">
                 <div className="--step">
-                    <div className="--bet-info-id">#{parseInt(info.id) > 0 ? parseInt(info.id) - 1 : 0}</div>
+                    <div className="--bet-info-id">#{betID}</div>
                     <a href="#" className="previous round">&#8249;</a>
                     <a href="#" className="next round">&#8250;</a>
                 </div>
