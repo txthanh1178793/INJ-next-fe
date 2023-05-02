@@ -301,7 +301,7 @@ td {
   height: 340px;
   /* margin-top: 20px; */
   width: 30%;
-  position: absolute;
+  position: relative;
   margin: 0 auto;
 }
 
