@@ -130,8 +130,6 @@ const PredictContextProvider = (props: Props) => {
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
         let timeStamp = await queryTimeStamp();
-
-        const { injectiveAddress } = useWalletStore();
         let addr = "inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny";
         if (injectiveAddress) addr = injectiveAddress;
         try {
