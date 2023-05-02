@@ -202,7 +202,7 @@ const PredictContextProvider = (props: Props) => {
             ) as { data: string };
 
             setReward(response.data as string);
-            console.log(info);
+            console.log(reward);
         } catch (e) {
             alert("Query Reward Failed");
         }
