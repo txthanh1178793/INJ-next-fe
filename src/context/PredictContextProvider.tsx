@@ -110,9 +110,11 @@ const PredictContextProvider = (props: Props) => {
 
     useEffect(() => {
         fetchCurrentInfo();
-        queryBetInfo((parseInt(info.id) - 1).toString());
-        const interval = setInterval(() => fetchCurrentInfo(), 5000);
-        return () => clearInterval(interval);
+        if (parseInt(info.id) > 0) {
+            queryBetInfo((parseInt(info.id) - 1).toString());
+        }
+        // const interval = setInterval(() => fetchCurrentInfo(), 5000);
+        // return () => clearInterval(interval);
     }, []);
 
     const fetchFromBinance = async () => {
@@ -177,13 +179,6 @@ const PredictContextProvider = (props: Props) => {
             ) as { data: string };
 
             const info = fromBase64(response.data);
-            setBetInfo({
-                upBet: info.upBet as string,
-                downBet: info.downBet as string,
-                endPrice: info.endPrice as string,
-                startPrice: info.startPrice as string,
-                totalPrize: info.totalPrize as string,
-            });
             console.log(info);
         } catch (e) {
 
