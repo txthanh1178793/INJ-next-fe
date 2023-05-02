@@ -22,6 +22,7 @@ const CurrentBet = (props: Props) => {
         timeStamp: '0'
     });
     const { data,
+        betInfo,
         queryBetInfo,
         queryReward,
         startBet,
@@ -126,7 +127,7 @@ const CurrentBet = (props: Props) => {
 
             <div className="--container-wrapper -bet--info">
                 <div className="--step">
-                    <div className="--bet-info-id">#120</div>
+                    <div className="--bet-info-id">#{info.id > 0 ? parseInt(info.id) - 1 : 0}</div>
                     <a href="#" className="previous round">&#8249;</a>
                     <a href="#" className="next round">&#8250;</a>
                 </div>
@@ -134,15 +135,17 @@ const CurrentBet = (props: Props) => {
                     <table className="info">
                         <tr>
                             <th className="--bet-info-data">Start Price</th>
-                            <th className="--bet-info-data">$7.862</th>
+                            <th className="--bet-info-data">${betInfo.startPrice}</th>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">End Price</td>
-                            <td className="--bet-info-data">$7.862</td>
+                            <td className="--bet-info-data">${betInfo.endPrice}</td>
                         </tr>
                         <tr>
                             <td className="--bet-info-data">Total Prize</td>
-                            <td className="--bet-info-data">1100.2 INJ</td>
+                            <td className="--bet-info-data">
+                                {parseInt((bigInt(betInfo.totalPrize) / bigInt("10000000000000")) as string) / 100000} $INJ
+                            </td>
                         </tr>
                     </table>
                 </div>

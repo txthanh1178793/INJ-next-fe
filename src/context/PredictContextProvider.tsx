@@ -53,6 +53,14 @@ const PredictContext = createContext<StoreState>({
         binancePrice: '0',
         timeStamp: '0'
     },
+    bet_info: {
+        upBet: "0",
+        downBet: "0",
+        endPrice: "0",
+        startPrice: "0",
+        totalPrize: "0",
+
+    },
     queryBetInfo: (value) => { },
     queryReward: (address, id) => { },
     startBet: () => { },
@@ -83,9 +91,20 @@ const PredictContextProvider = (props: Props) => {
         binancePrice: '0',
         timeStamp: '0'
     });
+    const [betInfo, setBetInfo] = useState({
+        upBet: "0",
+        downBet: "0",
+        endPrice: "0",
+        startPrice: "0",
+        totalPrize: "0",
+    });
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
+        fetchCurrentInfo();
+        if (parseInt(info.id) > 0) {
+            queryBetInfo((parseInt(info.id) - 1) as string);
+        }
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
     }, []);
@@ -152,9 +171,15 @@ const PredictContextProvider = (props: Props) => {
             ) as { data: string };
 
             const info = fromBase64(response.data);
-            console.log(info);
+            setBetInfo({
+                upBet: info.upBet as string,
+                downBet: info.downBet as string,
+                endPrice: info.endPrice as string,
+                startPrice: info.startPrice as string,
+                totalPrize: info.totalPrize as string,
+            });
         } catch (e) {
-            alert((e as any).message);
+
         }
     }
     async function queryReward(address: string, id: string) {
@@ -166,9 +191,9 @@ const PredictContextProvider = (props: Props) => {
             ) as { data: string };
 
             const info = fromBase64(response.data);
-            alert(info);
+            return info;
         } catch (e) {
-            alert((e as any).message);
+            return "0";
         }
     }
     async function startBet() {
