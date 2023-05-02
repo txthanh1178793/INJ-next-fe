@@ -8,7 +8,7 @@ const CurrentBet = (props: Props) => {
     const [inputValue, setInputValue] = useState("0");
     const [inputAddress, setInputAddress] = useState("0");
     const [inpuId, setInpuId] = useState("0");
-    const [betID, setbetID] = useState("0");
+    const [betID, setBetID] = useState(0);
     const [info, setInfo] = useState({
         id: '0',
         status: '0',
@@ -64,8 +64,13 @@ const CurrentBet = (props: Props) => {
     function handleClaimReward() {
         claimReward(inpuId);
     }
-    function handleQueryBetInfo() {
-        queryBetInfo(inpuId as string);
+    function handleQueryBetInfoNext() {
+        setBetID(betID + 1);
+        queryBetInfo(betID as string);
+    }
+    function handleQueryBetInfoPrevious() {
+        setBetID(betID - 1);
+        queryBetInfo(betID as string);
     }
     function handleQueryCurrentInfo() {
         fetchCurrentInfo();
@@ -84,7 +89,8 @@ const CurrentBet = (props: Props) => {
         }
         setInputValue(value);
     };
-    // onMouseOver={handleQueryCurrentInfo} 
+
+
     return (
         <div>
             <div className="--container-wrapper" >
@@ -135,8 +141,16 @@ const CurrentBet = (props: Props) => {
             <div className="--container-wrapper -bet--info">
                 <div className="--step">
                     <div className="--bet-info-id">#{betID}</div>
-                    <a href="#" className="previous round">&#8249;</a>
-                    <a href="#" className="next round">&#8250;</a>
+                    <a href="#" className="previous round">
+                        <button onClick={() => { betID != 0 ? handleQueryBetInfoPrevious()}}>
+                            &#8249;
+                        </button>
+                    </a>
+                    <a href="#" className="next round">
+                        <button onClick={handleQueryBetInfoNext()}>
+                            &#8250;
+                        </button>
+                    </a>
                 </div>
                 <div>
                     <table className="info">
@@ -164,7 +178,7 @@ const CurrentBet = (props: Props) => {
                     <button className="--check-and-claim --claim"></button>
                 </div>
             </div>
-        </div>
+        </div >
 
     );
 };
