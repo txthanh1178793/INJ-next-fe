@@ -109,13 +109,13 @@ const PredictContextProvider = (props: Props) => {
     });
     // const [addr, setAddr] = useState("inj1jx9uecvwlf94skkwrfumhv0sjsm85um9mmg9ny");
     const [reward, setReward] = useState("0");
-
+    const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
         queryBetInfo("0");
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [injectiveAddress]);
 
     const fetchFromBinance = async () => {
         try {
@@ -195,7 +195,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
     async function queryReward(id: string) {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             return;
         }
@@ -211,7 +210,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
     async function startBet() {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
@@ -239,7 +237,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
     async function endBet() {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
@@ -267,7 +264,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
     async function upBet(value: string) {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
@@ -297,7 +293,6 @@ const PredictContextProvider = (props: Props) => {
         }
     }
     async function downBet(value: string) {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
@@ -328,7 +323,6 @@ const PredictContextProvider = (props: Props) => {
     }
 
     async function claimReward(value: string) {
-        const { injectiveAddress } = useWalletStore();
         if (!injectiveAddress) {
             alert("No Wallet Connected");
             return;
