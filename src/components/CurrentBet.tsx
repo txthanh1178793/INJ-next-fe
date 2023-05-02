@@ -54,11 +54,15 @@ const CurrentBet = (props: Props) => {
             ) as { data: string };
             const data = await fromBase64(response.data);
             // console.log((data.id).toString());
-            return parseInt((data.id).toString()).toString();
+            setBetID(parseInt((data.id).toString()).toString());
         } catch (e) {
-            return "0";
+            setBetID("0");
         }
     }
+
+    useEffect(() => {
+        getid();
+    }, []);
 
     useEffect(() => {
         setInfo(data);
@@ -70,9 +74,7 @@ const CurrentBet = (props: Props) => {
         setBetInfo(betInfo);
     }, [betInfo]);
 
-    useEffect(() => {
-        getid();
-    }, []);
+
 
     function handleStartBet() {
         startBet();
