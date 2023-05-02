@@ -112,7 +112,8 @@ const PredictContextProvider = (props: Props) => {
     const { injectiveAddress } = useWalletStore();
 
     useEffect(() => {
-        queryBetInfo((getid()).toString());
+        const id = getid().toString();
+        queryBetInfo(id);
         const interval = setInterval(() => fetchCurrentInfo(), 5000);
         return () => clearInterval(interval);
     }, [injectiveAddress]);
@@ -136,7 +137,7 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ current_info: { addr: addr } })
             ) as { data: string };
             const data = await fromBase64(response.data);
-            return data.id as string;
+            return (data.id).toString();
         } catch (e) {
             return "0";
         }
