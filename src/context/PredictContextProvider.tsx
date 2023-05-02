@@ -188,7 +188,7 @@ const PredictContextProvider = (props: Props) => {
             });
             console.log(data);
         } catch (e) {
-            console.log("query failed");
+            alert(e);
         }
     }
     async function queryReward(address: string, id: string) {
