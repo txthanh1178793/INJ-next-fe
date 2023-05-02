@@ -48,7 +48,7 @@ const CurrentBet = (props: Props) => {
         setBetInfo(betInfo);
         queryReward(betID);
         setReward(reward);
-    }, []);
+    }, [data]);
 
     function handleStartBet() {
         startBet();
