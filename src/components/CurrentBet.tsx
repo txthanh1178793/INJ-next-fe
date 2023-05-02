@@ -121,7 +121,7 @@ const CurrentBet = (props: Props) => {
             </div>
 
 
-            <div className="--container-wrapper -bet--info">
+            <div className="-bet--info">
                 <div className="--step">
                     <div className="--bet-info-id">#120</div>
                     <a href="#" className="previous round">&#8249;</a>
