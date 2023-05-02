@@ -98,7 +98,7 @@ const CurrentBet = (props: Props) => {
     };
 
     const Claim = () => {
-        return <button className="--check-and-claim" onClick={handleClaimReward}></button>
+        return <button className="--check-and-claim" onClick={handleClaimReward}>Claim Reward</button>
     }
     return (
         <div>

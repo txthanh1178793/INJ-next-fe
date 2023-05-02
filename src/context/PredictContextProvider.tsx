@@ -201,7 +201,6 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ user_reward: { addr: injectiveAddress, bet_id: parseInt(id, 10) } })
             ) as { data: string };
             const desh_data = fromBase64(response.data).toString();
-            console.log(desh_data);
             setReward(desh_data);
         } catch (e) {
             alert(e)
