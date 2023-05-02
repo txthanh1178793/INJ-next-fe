@@ -110,6 +110,7 @@ const PredictContextProvider = (props: Props) => {
 
     useEffect(() => {
         fetchCurrentInfo();
+        console.log(info.id);
         // if (parseInt(info.id) > 0) {
         queryBetInfo((parseInt(info.id) - 1).toString());
         // }
