@@ -44,7 +44,8 @@ type StoreState = {
     upBet: (value: string) => void,
     downBet: (value: string) => void,
     claimReward: (value: string) => void,
-    fetchCurrentInfo: () => void
+    fetchCurrentInfo: () => void,
+    getid: () => void
 };
 
 const PredictContext = createContext<StoreState>({
@@ -77,7 +78,8 @@ const PredictContext = createContext<StoreState>({
     upBet: (value) => { },
     downBet: (value) => { },
     claimReward: (value) => { },
-    fetchCurrentInfo: () => { }
+    fetchCurrentInfo: () => { },
+    getid: () => { }
 });
 
 export const usePredictStore = () => useContext(PredictContext);
@@ -135,12 +137,12 @@ const PredictContextProvider = (props: Props) => {
                 toBase64({ current_info: { addr: addr } })
             ) as { data: string };
             const data = await fromBase64(response.data);
+            console.log((data.id).toString());
             return (data.id).toString();
         } catch (e) {
             return "0";
         }
     }
-
 
     async function fetchCurrentInfo() {
         let binancePrice = await fetchFromBinance();
@@ -373,6 +375,7 @@ const PredictContextProvider = (props: Props) => {
                 downBet,
                 claimReward,
                 fetchCurrentInfo,
+                getid,
             }}
         >
             {props.children}

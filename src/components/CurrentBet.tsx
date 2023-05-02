@@ -40,7 +40,8 @@ const CurrentBet = (props: Props) => {
         upBet,
         downBet,
         claimReward,
-        fetchCurrentInfo
+        fetchCurrentInfo,
+        getid
     } = usePredictStore();
 
     useEffect(() => {
