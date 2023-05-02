@@ -45,10 +45,13 @@ const CurrentBet = (props: Props) => {
 
     useEffect(() => {
         setInfo(data);
-        setBetInfo(betInfo);
         queryReward(betID);
         setReward(reward);
     }, [data]);
+
+    useEffect(() => {
+        setBetInfo(betInfo);
+    }, []);
 
     function handleStartBet() {
         startBet();
