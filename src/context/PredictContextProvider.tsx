@@ -152,7 +152,7 @@ const PredictContextProvider = (props: Props) => {
                 binancePrice: binancePrice.price,
                 timeStamp: timeStamp as string,
             });
-            console.log(data);
+            console.log(addr);
         } catch (e) {
             alert((e as any).message);
         }
