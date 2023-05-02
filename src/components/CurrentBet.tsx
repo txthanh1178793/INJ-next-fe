@@ -54,6 +54,10 @@ const CurrentBet = (props: Props) => {
         setBetInfo(betInfo);
     }, [betInfo]);
 
+    useEffect(() => {
+        getid();
+    }, []);
+
     function handleStartBet() {
         startBet();
     }
